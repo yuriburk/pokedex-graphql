@@ -12,10 +12,13 @@ export default createGlobalStyle`
     background: #312e38;
     color: #fff;
     -webkit-font-smoothing: antialiased;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 15px;
   }
 
   body, input, button {
-    font-family: 'Roboto slab', serif;
+    font-family: Cabin, serif;
     font-size: 16px;
   }
 

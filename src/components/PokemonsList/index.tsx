@@ -2,28 +2,21 @@ import React, { useEffect } from 'react';
 
 import { Container, Item, Image, Title } from './styles';
 import { IPokemon } from 'interfaces';
-import { gql, useMutation, useQuery } from '@apollo/client';
-import { GET_POKEMONS, GET_POKEMONS_UPDATED } from 'apollo/queries/Pokemons';
-import { pokemonsVar } from 'apollo';
+import { useQuery } from '@apollo/client';
+import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
+import { pokemonsVar } from 'operations';
 
 interface IListProps {
   count: number;
 }
 
-const UPDATE_POKEMON_MUTATION = gql`
-  mutation {
-    updatePokemon(id: $id) @client
-  }
-`;
-
 const List: React.FC<IListProps> = ({ count }) => {
-  const { data: pokemonsResponse } = useQuery<{ pokemons: IPokemon[] }>(
-    GET_POKEMONS,
-    {
-      variables: { count },
-    },
-  );
-  const { data: localPokemons } = useQuery(GET_POKEMONS_UPDATED);
+  const { error, loading, data: pokemonsResponse } = useQuery<{
+    pokemons: IPokemon[];
+  }>(GET_POKEMONS, {
+    variables: { count },
+  });
+  const { data: localPokemons } = useQuery(GET_POKEMONS_CACHED);
 
   useEffect(() => {
     if (pokemonsResponse) {
@@ -50,6 +43,14 @@ const List: React.FC<IListProps> = ({ count }) => {
       }),
     );
   };
+
+  if (error) {
+    return <div>Erro</div>;
+  }
+
+  if (loading) {
+    return <div>Loading</div>;
+  }
 
   return (
     <Container>

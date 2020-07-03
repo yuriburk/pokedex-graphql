@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 
-import client from 'apollo';
+import client from 'operations';
 import GlobalStyle from 'styles/global';
 import Routes from 'routes';
 

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 
   list-style: none;
@@ -12,7 +13,6 @@ export const Item = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
 
   padding: 15px;
   border-radius: 5px;
@@ -27,6 +27,10 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h2`
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+
   color: black;
 
   margin-top: 15px;

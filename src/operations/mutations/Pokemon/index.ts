@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { pokemonsVar } from 'apollo';
+import { pokemonsVar } from 'operations';
 
 interface IArgs {
   id: string;

@@ -10,7 +10,7 @@ export const GET_POKEMONS = gql`
   }
 `;
 
-export const GET_POKEMONS_UPDATED = gql`
+export const GET_POKEMONS_CACHED = gql`
   query GetPokemonsUpdated {
     pokemonsUpdated @client
   }
