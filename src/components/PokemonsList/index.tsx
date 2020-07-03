@@ -20,6 +20,7 @@ const List: React.FC<IListProps> = ({ count }) => {
   const { loading, error, data } = useQuery(GET_POKEMONS, {
     variables: { count },
   });
+
   const [updatePokemon] = useMutation(UPDATE_POKEMON_MUTATION);
 
   return (
