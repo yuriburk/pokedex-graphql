@@ -7,7 +7,7 @@ export const cache: InMemoryCache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
-        pokemonsUpdated: {
+        pokemonsCached: {
           read() {
             console.log('query', pokemonsVar());
             return pokemonsVar();

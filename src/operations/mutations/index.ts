@@ -1,4 +1,4 @@
-import PokemonMutations from './Pokemon';
+import PokemonMutations from './Pokemons';
 
 const resolvers = { Mutation: { ...PokemonMutations } };
 

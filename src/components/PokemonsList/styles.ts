@@ -1,37 +1,88 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.ul`
+export const Container = styled.div``;
+
+export const List = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   list-style: none;
 `;
 
-export const Item = styled.li`
+export const ListItem = styled.li(
+  (props) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 32%;
+
+    ${props.theme.breakpoints.xl} {
+      flex: 0 49%;
+    }
+
+    ${props.theme.breakpoints.md} {
+      flex: 0 100%;
+    }
+
+    height: 185px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    background-color: ${props.theme.colors.primaryWhite};
+  `,
+);
+
+export const PokemonInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  padding: 15px;
-  border-radius: 5px;
-  margin: 5px;
-
-  background-color: white;
-`;
-
-export const Image = styled.img`
-  width: 125px;
-  height: 125px;
-`;
-
-export const Title = styled.h2`
-  display: flex;
-  justify-content: flex-end;
-  flex: 1;
 
   color: black;
+`;
+
+export const Title = styled.h2``;
+
+export const TextInfo = styled.p`
+  color: gray;
+`;
+
+export const SpecialContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 
   margin-top: 15px;
+`;
+
+export const SpecialInfoContainer = styled.div(
+  (props) => css`
+    display: flex;
+    align-items: center;
+
+    padding: 5px;
+    margin: 5px 5px 0 0;
+    border-radius: 5px;
+    background-color: ${props.theme.colors.secundaryDark};
+  `,
+);
+
+export const SpecialInfo = styled.p(
+  (props) => css`
+    color: ${props.theme.colors.primaryWhite};
+  `,
+);
+
+export const Image = styled.img`
+  width: 115px;
+  height: 115px;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const LoadingContainer = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
 `;

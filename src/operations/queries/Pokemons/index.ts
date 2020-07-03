@@ -6,12 +6,18 @@ export const GET_POKEMONS = gql`
       id
       image
       name
+      number
+      attacks {
+        special {
+          type
+        }
+      }
     }
   }
 `;
 
 export const GET_POKEMONS_CACHED = gql`
-  query GetPokemonsUpdated {
-    pokemonsUpdated @client
+  query GetpokemonsCached {
+    pokemonsCached @client
   }
 `;

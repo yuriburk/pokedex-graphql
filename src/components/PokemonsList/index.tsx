@@ -1,69 +1,108 @@
-import React, { useEffect } from 'react';
-
-import { Container, Item, Image, Title } from './styles';
-import { IPokemon } from 'interfaces';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
-import { pokemonsVar } from 'operations';
+import GridLoader from 'react-spinners/GridLoader';
 
-interface IListProps {
-  count: number;
+import { IPokemon } from 'interfaces';
+import Button from 'components/Button';
+import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
+import {
+  updatePokemon,
+  cacheLoadedPokemons,
+} from 'operations/mutations/Pokemons';
+import {
+  Container,
+  List,
+  ListItem,
+  PokemonInfo,
+  Title,
+  TextInfo,
+  SpecialContainer,
+  SpecialInfoContainer,
+  SpecialInfo,
+  Image,
+  ButtonContainer,
+  LoadingContainer,
+} from './styles';
+
+interface IPokemonsListProps {
+  initialCount?: number;
 }
 
-const List: React.FC<IListProps> = ({ count }) => {
-  const { error, loading, data: pokemonsResponse } = useQuery<{
+const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
+  const [count, setCount] = useState(initialCount);
+
+  const { loading, data } = useQuery<{
     pokemons: IPokemon[];
   }>(GET_POKEMONS, {
     variables: { count },
   });
-  const { data: localPokemons } = useQuery(GET_POKEMONS_CACHED);
+
+  const { data: cachedData } = useQuery(GET_POKEMONS_CACHED);
 
   useEffect(() => {
-    if (pokemonsResponse) {
-      const newPokemons = pokemonsResponse.pokemons.filter(
-        (item) =>
-          !pokemonsVar().find((pokemonVar) => pokemonVar.id === item.id),
-      );
-
-      pokemonsVar([...pokemonsVar(), ...newPokemons]);
+    if (data) {
+      cacheLoadedPokemons(data.pokemons);
     }
-  }, [pokemonsResponse]);
+  }, [data]);
 
-  const updatePokemon = (pokemon: IPokemon, name: string) => {
-    console.log(pokemon);
-    const updatedPokemon = Object.assign({}, pokemon);
-    updatedPokemon.name = name;
-    pokemonsVar(
-      pokemonsVar().map((item) => {
-        if (item.id === updatedPokemon.id) {
-          return updatedPokemon;
-        }
+  const handleShowMore = useCallback(
+    () => setCount((state) => state + state),
+    [],
+  );
 
-        return item;
-      }),
-    );
-  };
-
-  if (error) {
-    return <div>Erro</div>;
-  }
-
-  if (loading) {
-    return <div>Loading</div>;
-  }
+  const generateDistinctPokemonSpecialsArray = useCallback(
+    (pokemon: IPokemon): string[] =>
+      Array.from(new Set(pokemon.attacks.special.map((s) => s.type))),
+    [],
+  );
 
   return (
     <Container>
-      {localPokemons?.pokemonsUpdated.map(
-        (pokemon: IPokemon, index: number) => (
-          <Item key={index} onClick={() => updatePokemon(pokemon, 'teste')}>
-            <Image src={pokemon.image} alt={pokemon.name} />
-            <Title>{pokemon.name}</Title>
-          </Item>
-        ),
+      {cachedData?.pokemonsCached.length > 0 ? (
+        <>
+          <List>
+            {cachedData?.pokemonsCached.map(
+              (pokemon: IPokemon, index: number) => (
+                <ListItem
+                  key={index}
+                  onClick={() => updatePokemon(pokemon, 'teste')}
+                >
+                  <PokemonInfo>
+                    <Title>{pokemon.name}</Title>
+                    <TextInfo>#{pokemon.number}</TextInfo>
+                    <SpecialContainer>
+                      {generateDistinctPokemonSpecialsArray(pokemon).map(
+                        (type, index) => (
+                          <SpecialInfoContainer key={index}>
+                            <SpecialInfo>{type}</SpecialInfo>
+                          </SpecialInfoContainer>
+                        ),
+                      )}
+                    </SpecialContainer>
+                  </PokemonInfo>
+                  <Image src={pokemon.image} alt={pokemon.name} />
+                </ListItem>
+              ),
+            )}
+          </List>
+          <ButtonContainer>
+            <Button
+              type="button"
+              onClick={handleShowMore}
+              loading={loading}
+              style={{ width: '150px' }}
+            >
+              Show More
+            </Button>
+          </ButtonContainer>
+        </>
+      ) : (
+        <LoadingContainer>
+          <GridLoader color="white" />
+        </LoadingContainer>
       )}
     </Container>
   );
 };
 
-export default React.memo(List);
+export default React.memo(PokemonsList);
