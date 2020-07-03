@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
 
 export const GET_POKEMONS = gql`
   query GetPokemons($count: Int!) {
@@ -7,5 +7,11 @@ export const GET_POKEMONS = gql`
       image
       name
     }
+  }
+`;
+
+export const GET_POKEMONS_UPDATED = gql`
+  query GetPokemonsUpdated {
+    pokemonsUpdated @client
   }
 `;

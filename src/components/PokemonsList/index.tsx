@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Container, Item, Image, Title } from './styles';
 import { IPokemon } from 'interfaces';
-import { gql } from 'apollo-boost';
-import { useMutation, useQuery } from '@apollo/react-hooks';
-import { GET_POKEMONS } from 'apollo/queries/Pokemons';
+import { gql, useMutation, useQuery } from '@apollo/client';
+import { GET_POKEMONS, GET_POKEMONS_UPDATED } from 'apollo/queries/Pokemons';
+import { pokemonsVar } from 'apollo';
 
 interface IListProps {
   count: number;
@@ -17,23 +17,50 @@ const UPDATE_POKEMON_MUTATION = gql`
 `;
 
 const List: React.FC<IListProps> = ({ count }) => {
-  const { loading, error, data } = useQuery(GET_POKEMONS, {
-    variables: { count },
-  });
+  const { data: pokemonsResponse } = useQuery<{ pokemons: IPokemon[] }>(
+    GET_POKEMONS,
+    {
+      variables: { count },
+    },
+  );
+  const { data: localPokemons } = useQuery(GET_POKEMONS_UPDATED);
 
-  const [updatePokemon] = useMutation(UPDATE_POKEMON_MUTATION);
+  useEffect(() => {
+    if (pokemonsResponse) {
+      const newPokemons = pokemonsResponse.pokemons.filter(
+        (item) =>
+          !pokemonsVar().find((pokemonVar) => pokemonVar.id === item.id),
+      );
+
+      pokemonsVar([...pokemonsVar(), ...newPokemons]);
+    }
+  }, [pokemonsResponse]);
+
+  const updatePokemon = (pokemon: IPokemon, name: string) => {
+    console.log(pokemon);
+    const updatedPokemon = Object.assign({}, pokemon);
+    updatedPokemon.name = name;
+    pokemonsVar(
+      pokemonsVar().map((item) => {
+        if (item.id === updatedPokemon.id) {
+          return updatedPokemon;
+        }
+
+        return item;
+      }),
+    );
+  };
 
   return (
     <Container>
-      {data?.pokemons.map((pokemon: IPokemon, index: number) => (
-        <Item
-          key={index}
-          onClick={() => updatePokemon({ variables: { id: pokemon.id } })}
-        >
-          <Image src={pokemon.image} alt={pokemon.name} />
-          <Title>{pokemon.name}</Title>
-        </Item>
-      ))}
+      {localPokemons?.pokemonsUpdated.map(
+        (pokemon: IPokemon, index: number) => (
+          <Item key={index} onClick={() => updatePokemon(pokemon, 'teste')}>
+            <Image src={pokemon.image} alt={pokemon.name} />
+            <Title>{pokemon.name}</Title>
+          </Item>
+        ),
+      )}
     </Container>
   );
 };

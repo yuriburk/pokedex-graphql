@@ -1,4 +1,5 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/client';
+import { pokemonsVar } from 'apollo';
 
 interface IArgs {
   id: string;
@@ -19,6 +20,7 @@ const updatePokemon = (
 
   const pokemon = cache.readFragment({ fragment, id });
   const data = { ...pokemon, name: 'novo nome' };
+  pokemonsVar(pokemonsVar().concat(data));
   cache.writeFragment({ fragment, id, data });
   return null;
 };
