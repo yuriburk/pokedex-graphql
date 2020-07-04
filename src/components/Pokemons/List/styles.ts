@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
+import { IPokemonTypes } from 'interfaces';
 
 export const Container = styled.div``;
 
 export const List = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 
   list-style: none;
@@ -22,11 +23,12 @@ export const ListItem = styled.li(
     min-height: 285px;
     padding: 14px 30px;
     border-radius: 4px;
-    margin: 1% 0;
+    margin: 4px;
     background-color: ${props.theme.colors.primaryWhite};
 
     ${props.theme.breakpoints.lg} {
       flex: 0 49%;
+      margin: 2px;
     }
 
     ${props.theme.breakpoints.sm} {
@@ -72,14 +74,73 @@ export const SpecialContainer = styled.div`
   margin-top: 14px;
 `;
 
-export const SpecialInfoContainer = styled.div(
-  (props) => css`
-    padding: 4px 8px;
-    margin: 4px 4px 0 0;
-    border-radius: 12px;
-    background-color: ${props.theme.colors.secundaryDark};
+interface ISpecialInfoContainerProps {
+  pokemonType: IPokemonTypes;
+}
+
+const typesColors = {
+  Normal: css`
+    background: #a8a878;
   `,
-);
+  Fire: css`
+    background: #f08030;
+  `,
+  Fighting: css`
+    background: #c03028;
+  `,
+  Water: css`
+    background: #6890f0;
+  `,
+  Flying: css`
+    background: #a890f0;
+  `,
+  Grass: css`
+    background: #78c850;
+  `,
+  Poison: css`
+    background: #a040a0;
+  `,
+  Electric: css`
+    background: #f8d030;
+  `,
+  Ground: css`
+    background: #e0c068;
+  `,
+  Psychic: css`
+    background: #f85888;
+  `,
+  Rock: css`
+    background: #b8a038;
+  `,
+  Ice: css`
+    background: #98d8d8;
+  `,
+  Bug: css`
+    background: #a8b820;
+  `,
+  Dragon: css`
+    background: #7038f8;
+  `,
+  Ghost: css`
+    background: #705898;
+  `,
+  Dark: css`
+    background: #705848;
+  `,
+  Steel: css`
+    background: #b8b8d0;
+  `,
+  Fairy: css`
+    background: #ee99ac;
+  `,
+};
+
+export const SpecialInfoContainer = styled.div<ISpecialInfoContainerProps>`
+  padding: 4px 8px;
+  margin: 4px 4px 0 0;
+  border-radius: 12px;
+  ${(props) => typesColors[props.pokemonType]};
+`;
 
 export const SpecialInfo = styled.p(
   (props) => css`

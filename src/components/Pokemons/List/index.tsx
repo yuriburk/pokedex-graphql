@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 
-import { IPokemon } from 'interfaces';
+import { IPokemon, IPokemonTypes } from 'interfaces';
 import Loading from 'components/Loading';
 import {
   Container,
@@ -27,8 +27,10 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
   handleNavigate,
 }) => {
   const generateDistinctPokemonSpecialsArray = useCallback(
-    (pokemon: IPokemon): string[] =>
-      Array.from(new Set(pokemon.attacks.special.map((s) => s.type))),
+    (pokemon: IPokemon): IPokemonTypes[] =>
+      Array.from<IPokemonTypes>(
+        new Set(pokemon.attacks.special.map((s) => s.type as IPokemonTypes)),
+      ),
     [],
   );
 
@@ -37,28 +39,26 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
       {loading ? (
         <Loading />
       ) : (
-        <>
-          <List>
-            {pokemons?.map((pokemon: IPokemon, index: number) => (
-              <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
-                <Image src={pokemon.image} alt={pokemon.name} />
-                <PokemonInfo>
-                  <Title>{pokemon.name}</Title>
-                  <TextInfo>#{pokemon.number}</TextInfo>
-                  <SpecialContainer>
-                    {generateDistinctPokemonSpecialsArray(pokemon).map(
-                      (type, index) => (
-                        <SpecialInfoContainer key={index}>
-                          <SpecialInfo>{type}</SpecialInfo>
-                        </SpecialInfoContainer>
-                      ),
-                    )}
-                  </SpecialContainer>
-                </PokemonInfo>
-              </ListItem>
-            ))}
-          </List>
-        </>
+        <List>
+          {pokemons?.map((pokemon: IPokemon, index: number) => (
+            <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
+              <Image src={pokemon.image} alt={pokemon.name} />
+              <PokemonInfo>
+                <Title>{pokemon.name}</Title>
+                <TextInfo>#{pokemon.number}</TextInfo>
+                <SpecialContainer>
+                  {generateDistinctPokemonSpecialsArray(pokemon).map(
+                    (type, index) => (
+                      <SpecialInfoContainer key={index} pokemonType={type}>
+                        <SpecialInfo>{type}</SpecialInfo>
+                      </SpecialInfoContainer>
+                    ),
+                  )}
+                </SpecialContainer>
+              </PokemonInfo>
+            </ListItem>
+          ))}
+        </List>
       )}
     </Container>
   );
