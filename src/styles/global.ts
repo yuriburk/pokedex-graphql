@@ -14,7 +14,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     max-width: 1080px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 14px;
   }
 
   body, input, button {

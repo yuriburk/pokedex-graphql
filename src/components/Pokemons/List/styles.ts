@@ -4,6 +4,7 @@ export const Container = styled.div``;
 
 export const List = styled.ul`
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   list-style: none;
@@ -15,23 +16,27 @@ export const ListItem = styled.li(
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;
     flex: 0 32%;
 
     cursor: pointer;
-    min-height: 250px;
-    padding: 15px 30px;
-    border-radius: 5px;
-    margin: 4px;
+    min-height: 285px;
+    padding: 14px 30px;
+    border-radius: 4px;
+    margin: 1% 0;
     background-color: ${props.theme.colors.primaryWhite};
 
     ${props.theme.breakpoints.lg} {
       flex: 0 49%;
-      margin: 2px;
     }
 
     ${props.theme.breakpoints.sm} {
       flex: 0 100%;
+    }
+
+    transition: transform ease 0.5s;
+
+    &:hover {
+      transform: translateY(-8px);
     }
   `,
 );
@@ -46,6 +51,7 @@ export const PokemonInfo = styled.div`
 `;
 
 export const Title = styled.h2`
+  margin-top: 8px;
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -60,19 +66,17 @@ export const TextInfo = styled.p`
 
 export const SpecialContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 
-  margin-top: 15px;
+  margin-top: 14px;
 `;
 
 export const SpecialInfoContainer = styled.div(
   (props) => css`
-    display: flex;
-    align-items: center;
-
-    padding: 5px;
-    margin: 5px 5px 0 0;
-    border-radius: 5px;
+    padding: 4px 8px;
+    margin: 4px 4px 0 0;
+    border-radius: 12px;
     background-color: ${props.theme.colors.secundaryDark};
   `,
 );
@@ -84,8 +88,8 @@ export const SpecialInfo = styled.p(
 );
 
 export const Image = styled.img`
-  width: 115px;
-  height: 115px;
+  width: 114px;
+  height: 114px;
 `;
 
 export const ButtonContainer = styled.div`

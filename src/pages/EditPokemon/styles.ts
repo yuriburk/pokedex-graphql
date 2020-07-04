@@ -14,7 +14,7 @@ export const Container = styled.div`
     text-align: center;
 
     img {
-      border-radius: 5px;
+      border-radius: 4px;
       width: 250px;
       height: 250px;
       margin: 24px;
