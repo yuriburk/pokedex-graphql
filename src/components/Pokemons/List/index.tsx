@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import { IPokemon } from 'interfaces';
 import Loading from 'components/Loading';

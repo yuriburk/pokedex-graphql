@@ -15,6 +15,10 @@ export const GET_POKEMON_CACHED = gql`
   }
 `;
 
-export const findCachedPokemon = (pokemon: IPokemon): IPokemon | undefined => {
-  return pokemonsVar().find((cachedPokemon) => cachedPokemon.id === pokemon.id);
+export const findCachedPokemons = (pokemonName: string): IPokemon[] => {
+  return pokemonsVar().filter((cachedPokemon) =>
+    cachedPokemon.name
+      .toLocaleLowerCase()
+      .includes(pokemonName.toLocaleLowerCase()),
+  );
 };
