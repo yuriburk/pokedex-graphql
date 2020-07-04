@@ -12,7 +12,7 @@ export default createGlobalStyle`
     background: #312e38;
     color: #fff;
     -webkit-font-smoothing: antialiased;
-    max-width: 1180px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 15px;
   }

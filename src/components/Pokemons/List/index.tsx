@@ -41,6 +41,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
           <List>
             {pokemons?.map((pokemon: IPokemon, index: number) => (
               <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
+                <Image src={pokemon.image} alt={pokemon.name} />
                 <PokemonInfo>
                   <Title>{pokemon.name}</Title>
                   <TextInfo>#{pokemon.number}</TextInfo>
@@ -54,7 +55,6 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
                     )}
                   </SpecialContainer>
                 </PokemonInfo>
-                <Image src={pokemon.image} alt={pokemon.name} />
               </ListItem>
             ))}
           </List>
