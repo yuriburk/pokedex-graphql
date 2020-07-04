@@ -22,20 +22,8 @@ export const GET_POKEMONS_CACHED = gql`
   }
 `;
 
-export const GET_POKEMON = gql`
+export const GET_POKEMON_CACHED = gql`
   query GetPokemon($id: String!) {
-    pokemon(id: $id) {
-      id
-      image
-      name
-      number
-      classification
-      maxHP
-      attacks {
-        special {
-          type
-        }
-      }
-    }
+    pokemonCached(id: $id) @client
   }
 `;

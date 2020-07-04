@@ -2,7 +2,6 @@ import { pokemonsVar } from 'operations';
 import { IPokemon } from 'interfaces';
 
 export const updatePokemon = (pokemon: IPokemon): void => {
-  console.log('update', pokemon);
   pokemonsVar(
     pokemonsVar().map((item) => {
       if (item.id === pokemon.id) {
@@ -15,16 +14,17 @@ export const updatePokemon = (pokemon: IPokemon): void => {
 };
 
 export const cachePokemons = (pokemons: IPokemon[]): void => {
-  let newPokemons = pokemons;
   if (pokemonsVar().length > 0) {
-    newPokemons = pokemons.filter(
+    const newPokemons = pokemons.filter(
       (item) => !pokemonsVar().find((pokemonVar) => pokemonVar.id === item.id),
     );
+
+    if (newPokemons.length > 0) pokemonsVar([...pokemonsVar(), ...newPokemons]);
+
+    return;
   }
 
-  if (newPokemons.length > 0) {
-    pokemonsVar([...pokemonsVar(), ...newPokemons]);
-  }
+  pokemonsVar(pokemons);
 };
 
 const PokemonMutations = { updatePokemon, cachePokemons };

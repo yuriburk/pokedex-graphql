@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
@@ -6,7 +6,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import { IPokemon } from 'interfaces';
-import { GET_POKEMON } from 'operations/queries/Pokemons';
+import { GET_POKEMON_CACHED } from 'operations/queries/Pokemons';
 import Loading from 'components/Loading';
 import Input from 'components/Input';
 import Button from 'components/Button';
@@ -26,16 +26,16 @@ const EditPokemon: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null);
 
-  const { loading, data } = useQuery<{ pokemon: IPokemon }>(GET_POKEMON, {
-    variables: { id: history.location.state },
-  });
-
-  useEffect(() => {
-    if (data) {
-      console.log('data', data.pokemon);
-      setPokemon(data.pokemon);
-    }
-  }, [data]);
+  const { loading, data } = useQuery<{ pokemonCached: IPokemon }>(
+    GET_POKEMON_CACHED,
+    {
+      variables: { id: history.location.state },
+      onCompleted: (data) => {
+        setPokemon(data.pokemonCached);
+        console.log(data);
+      },
+    },
+  );
 
   const handleSubmit = useCallback(
     async (data: EditPokemonFormData) => {

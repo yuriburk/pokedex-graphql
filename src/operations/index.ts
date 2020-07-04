@@ -12,6 +12,14 @@ export const cache: InMemoryCache = new InMemoryCache({
             return pokemonsVar();
           },
         },
+        pokemonCached: {
+          read(data, props) {
+            console.log(data, props);
+            return pokemonsVar().find(
+              (pokemon) => pokemon.id === props.args?.id,
+            );
+          },
+        },
       },
     },
   },

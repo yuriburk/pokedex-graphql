@@ -41,7 +41,14 @@ export const PokemonInfo = styled.div`
   color: black;
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
 
 export const TextInfo = styled.p`
   color: gray;

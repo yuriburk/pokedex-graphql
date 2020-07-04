@@ -1,11 +1,7 @@
-import React, { useEffect, useCallback } from 'react';
-import { useQuery } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
+import React, { useCallback } from 'react';
 
 import { IPokemon } from 'interfaces';
 import Loading from 'components/Loading';
-import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
-import { cachePokemons } from 'operations/mutations/Pokemons';
 import {
   Container,
   List,
@@ -20,32 +16,16 @@ import {
 } from './styles';
 
 interface IPokemonsListProps {
-  count?: number;
+  loading: boolean;
+  pokemons: IPokemon[];
+  handleNavigate(pokemon: IPokemon): void;
 }
 
-const PokemonsList: React.FC<IPokemonsListProps> = ({ count = 151 }) => {
-  const { loading, data } = useQuery<{
-    pokemons: IPokemon[];
-  }>(GET_POKEMONS, {
-    variables: { count },
-  });
-
-  const { data: cachedData } = useQuery(GET_POKEMONS_CACHED);
-
-  const history = useHistory();
-
-  useEffect(() => {
-    console.log(data);
-    if (data) {
-      cachePokemons(data.pokemons);
-    }
-  }, [data]);
-
-  const handleNavigate = useCallback(
-    (pokemon: IPokemon) => history.push('edit', pokemon.id),
-    [history],
-  );
-
+const PokemonsList: React.FC<IPokemonsListProps> = ({
+  loading,
+  pokemons,
+  handleNavigate,
+}) => {
   const generateDistinctPokemonSpecialsArray = useCallback(
     (pokemon: IPokemon): string[] =>
       Array.from(new Set(pokemon.attacks.special.map((s) => s.type))),
@@ -54,33 +34,31 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ count = 151 }) => {
 
   return (
     <Container>
-      {cachedData?.pokemonsCached.length > 0 ? (
+      {loading ? (
+        <Loading />
+      ) : (
         <>
           <List>
-            {cachedData?.pokemonsCached.map(
-              (pokemon: IPokemon, index: number) => (
-                <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
-                  <PokemonInfo>
-                    <Title>{pokemon.name}</Title>
-                    <TextInfo>#{pokemon.number}</TextInfo>
-                    <SpecialContainer>
-                      {generateDistinctPokemonSpecialsArray(pokemon).map(
-                        (type, index) => (
-                          <SpecialInfoContainer key={index}>
-                            <SpecialInfo>{type}</SpecialInfo>
-                          </SpecialInfoContainer>
-                        ),
-                      )}
-                    </SpecialContainer>
-                  </PokemonInfo>
-                  <Image src={pokemon.image} alt={pokemon.name} />
-                </ListItem>
-              ),
-            )}
+            {pokemons?.map((pokemon: IPokemon, index: number) => (
+              <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
+                <PokemonInfo>
+                  <Title>{pokemon.name}</Title>
+                  <TextInfo>#{pokemon.number}</TextInfo>
+                  <SpecialContainer>
+                    {generateDistinctPokemonSpecialsArray(pokemon).map(
+                      (type, index) => (
+                        <SpecialInfoContainer key={index}>
+                          <SpecialInfo>{type}</SpecialInfo>
+                        </SpecialInfoContainer>
+                      ),
+                    )}
+                  </SpecialContainer>
+                </PokemonInfo>
+                <Image src={pokemon.image} alt={pokemon.name} />
+              </ListItem>
+            ))}
           </List>
         </>
-      ) : (
-        <Loading />
       )}
     </Container>
   );
