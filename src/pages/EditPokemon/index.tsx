@@ -6,13 +6,13 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import { IPokemon } from 'interfaces';
-import { GET_POKEMON_CACHED } from 'operations/queries/Pokemons';
+import { GET_POKEMON_CACHED } from 'operations/queries/Pokemons/cache';
 import Loading from 'components/Loading';
-import Input from 'components/Input';
+import FormInput from 'components/FormInput';
 import Button from 'components/Button';
 import getValidationErrors from 'utils/getValidationError';
 import { Container } from './styles';
-import { updatePokemon } from 'operations/mutations/Pokemons';
+import { updateCachedPokemon } from 'operations/mutations/Pokemons/cache';
 
 interface EditPokemonFormData {
   name: string;
@@ -52,7 +52,7 @@ const EditPokemon: React.FC = () => {
 
         const updatedPokemon = Object.assign({}, pokemon, data);
 
-        updatePokemon(updatedPokemon);
+        updateCachedPokemon(updatedPokemon);
 
         history.push('/');
       } catch (error) {
@@ -77,8 +77,8 @@ const EditPokemon: React.FC = () => {
             <h1>Editing {pokemon.name}</h1>
             <img src={pokemon.image} alt={pokemon.name} />
 
-            <Input name="name" defaultValue={pokemon.name} />
-            <Input name="number" defaultValue={pokemon.number} />
+            <FormInput name="name" defaultValue={pokemon.name} />
+            <FormInput name="number" defaultValue={pokemon.number} />
 
             <Button type="submit">Entrar</Button>
           </Form>

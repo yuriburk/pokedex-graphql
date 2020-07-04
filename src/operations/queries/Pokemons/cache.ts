@@ -1,20 +1,7 @@
 import { gql } from '@apollo/client';
 
-export const GET_POKEMONS = gql`
-  query GetPokemons($count: Int!) {
-    pokemons(first: $count) {
-      id
-      image
-      name
-      number
-      attacks {
-        special {
-          type
-        }
-      }
-    }
-  }
-`;
+import { IPokemon } from 'interfaces';
+import { pokemonsVar } from 'operations';
 
 export const GET_POKEMONS_CACHED = gql`
   query GetpokemonsCached {
@@ -27,3 +14,7 @@ export const GET_POKEMON_CACHED = gql`
     pokemonCached(id: $id) @client
   }
 `;
+
+export const findCachedPokemon = (pokemon: IPokemon): IPokemon | undefined => {
+  return pokemonsVar().find((cachedPokemon) => cachedPokemon.id === pokemon.id);
+};
