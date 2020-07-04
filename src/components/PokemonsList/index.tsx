@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
 import { IPokemon } from 'interfaces';
-import Button from 'components/Button';
 import Loading from 'components/Loading';
 import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
-import { cacheLoadedPokemons } from 'operations/mutations/Pokemons';
+import { cachePokemons } from 'operations/mutations/Pokemons';
 import {
   Container,
   List,
@@ -18,16 +17,13 @@ import {
   SpecialInfoContainer,
   SpecialInfo,
   Image,
-  ButtonContainer,
 } from './styles';
 
 interface IPokemonsListProps {
-  initialCount?: number;
+  count?: number;
 }
 
-const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
-  const [count, setCount] = useState(initialCount);
-
+const PokemonsList: React.FC<IPokemonsListProps> = ({ count = 151 }) => {
   const { loading, data } = useQuery<{
     pokemons: IPokemon[];
   }>(GET_POKEMONS, {
@@ -39,15 +35,11 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
   const history = useHistory();
 
   useEffect(() => {
+    console.log(data);
     if (data) {
-      cacheLoadedPokemons(data.pokemons);
+      cachePokemons(data.pokemons);
     }
   }, [data]);
-
-  const handleShowMore = useCallback(
-    () => setCount((state) => state + state),
-    [],
-  );
 
   const handleNavigate = useCallback(
     (pokemon: IPokemon) => history.push('edit', pokemon.id),
@@ -86,16 +78,6 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
               ),
             )}
           </List>
-          <ButtonContainer>
-            <Button
-              type="button"
-              onClick={handleShowMore}
-              loading={loading}
-              style={{ width: '150px' }}
-            >
-              Show More
-            </Button>
-          </ButtonContainer>
         </>
       ) : (
         <Loading />

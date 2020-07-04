@@ -31,6 +31,11 @@ export const GET_POKEMON = gql`
       number
       classification
       maxHP
+      attacks {
+        special {
+          type
+        }
+      }
     }
   }
 `;

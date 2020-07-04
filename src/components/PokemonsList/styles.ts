@@ -26,7 +26,7 @@ export const ListItem = styled.li(
     }
 
     cursor: pointer;
-    height: 185px;
+    min-height: 185px;
     padding: 15px 30px;
     border-radius: 5px;
     margin-bottom: 2%;
