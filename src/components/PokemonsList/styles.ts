@@ -25,6 +25,7 @@ export const ListItem = styled.li(
       flex: 0 100%;
     }
 
+    cursor: pointer;
     height: 185px;
     padding: 15px 30px;
     border-radius: 5px;
@@ -79,10 +80,4 @@ export const Image = styled.img`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-`;
-
-export const LoadingContainer = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
 `;

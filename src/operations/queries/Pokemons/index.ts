@@ -21,3 +21,16 @@ export const GET_POKEMONS_CACHED = gql`
     pokemonsCached @client
   }
 `;
+
+export const GET_POKEMON = gql`
+  query GetPokemon($id: String!) {
+    pokemon(id: $id) {
+      id
+      image
+      name
+      number
+      classification
+      maxHP
+    }
+  }
+`;

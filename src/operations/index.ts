@@ -9,7 +9,6 @@ export const cache: InMemoryCache = new InMemoryCache({
       fields: {
         pokemonsCached: {
           read() {
-            console.log('query', pokemonsVar());
             return pokemonsVar();
           },
         },

@@ -1,15 +1,17 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-import Route from './Route';
-import Dashboard from '../pages/Dashboard';
+// import Route from './Route';
+import Dashboard from 'pages/Dashboard';
+import EditPokemon from 'pages/EditPokemon';
 
-const Home = () => <div>Home</div>;
+const Error = () => <div>Error</div>;
 
 const Routes: React.FC = () => (
   <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/dashboard" component={Dashboard} isPrivate />
+    <Route exact path="/" component={Dashboard} />
+    <Route path="/edit" component={EditPokemon} />
+    <Route path="*" component={Error} />
   </Switch>
 );
 

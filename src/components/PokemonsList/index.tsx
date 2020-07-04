@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/client';
-import GridLoader from 'react-spinners/GridLoader';
+import { useHistory } from 'react-router-dom';
 
 import { IPokemon } from 'interfaces';
 import Button from 'components/Button';
+import Loading from 'components/Loading';
 import { GET_POKEMONS, GET_POKEMONS_CACHED } from 'operations/queries/Pokemons';
-import {
-  updatePokemon,
-  cacheLoadedPokemons,
-} from 'operations/mutations/Pokemons';
+import { cacheLoadedPokemons } from 'operations/mutations/Pokemons';
 import {
   Container,
   List,
@@ -21,7 +19,6 @@ import {
   SpecialInfo,
   Image,
   ButtonContainer,
-  LoadingContainer,
 } from './styles';
 
 interface IPokemonsListProps {
@@ -39,6 +36,8 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
 
   const { data: cachedData } = useQuery(GET_POKEMONS_CACHED);
 
+  const history = useHistory();
+
   useEffect(() => {
     if (data) {
       cacheLoadedPokemons(data.pokemons);
@@ -48,6 +47,11 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
   const handleShowMore = useCallback(
     () => setCount((state) => state + state),
     [],
+  );
+
+  const handleNavigate = useCallback(
+    (pokemon: IPokemon) => history.push('edit', pokemon.id),
+    [history],
   );
 
   const generateDistinctPokemonSpecialsArray = useCallback(
@@ -63,10 +67,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
           <List>
             {cachedData?.pokemonsCached.map(
               (pokemon: IPokemon, index: number) => (
-                <ListItem
-                  key={index}
-                  onClick={() => updatePokemon(pokemon, 'teste')}
-                >
+                <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
                   <PokemonInfo>
                     <Title>{pokemon.name}</Title>
                     <TextInfo>#{pokemon.number}</TextInfo>
@@ -97,9 +98,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({ initialCount = 12 }) => {
           </ButtonContainer>
         </>
       ) : (
-        <LoadingContainer>
-          <GridLoader color="white" />
-        </LoadingContainer>
+        <Loading />
       )}
     </Container>
   );
