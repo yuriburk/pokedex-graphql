@@ -36,11 +36,6 @@ export const Image = styled.img`
   margin-bottom: 14px;
 `;
 
-export const ProfileInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;

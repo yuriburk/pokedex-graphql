@@ -1,11 +1,14 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useRef, useState, useCallback, useMemo } from 'react';
 import { useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
+import { FiArrowLeft } from 'react-icons/fi';
 
 import FormInput from 'components/FormInput';
+import FormSelect from 'components/FormSelect';
 import Button from 'components/Button';
+import Header from 'components/Header';
 import { IPokemon } from 'interfaces';
 import { GET_POKEMON_CACHED } from 'operations/queries/Pokemons/cache';
 import { updateCachedPokemon } from 'operations/mutations/Pokemons/cache';
@@ -15,12 +18,10 @@ import {
   Form,
   ProfileContainer,
   Image,
-  ProfileInfo,
   InputsContainer,
   LineContainer,
 } from './styles';
-import Header from 'components/Header';
-import { FiArrowLeft } from 'react-icons/fi';
+import { pokemonTypesFormArray } from 'utils/getPokemonTypes';
 
 interface EditPokemonFormData {
   name: string;
@@ -76,6 +77,8 @@ const PokemonDetail: React.FC = () => {
     [history, pokemon],
   );
 
+  const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
+
   return (
     <div>
       {loading && !data ? (
@@ -90,7 +93,6 @@ const PokemonDetail: React.FC = () => {
               <Image src={pokemon.image} alt={pokemon.name} />
               <h2>{pokemon.name}</h2>
               <p>#{pokemon.number}</p>
-              <ProfileInfo></ProfileInfo>
             </ProfileContainer>
 
             <InputsContainer>
@@ -136,7 +138,21 @@ const PokemonDetail: React.FC = () => {
                 />
               </LineContainer>
 
-              <Button type="submit">Entrar</Button>
+              <LineContainer>
+                {pokemon.resistant && (
+                  <FormSelect
+                    name="resistant"
+                    options={pokemonTypesForm}
+                    defaultValue={pokemon.resistant.map((resistant) => ({
+                      value: resistant,
+                      label: resistant,
+                    }))}
+                    isMulti
+                  />
+                )}
+              </LineContainer>
+
+              <Button type="submit">Salvar</Button>
             </InputsContainer>
           </Form>
         </Container>
