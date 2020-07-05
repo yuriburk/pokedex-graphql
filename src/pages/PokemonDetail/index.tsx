@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
-import Loading from 'components/Loading';
 import FormInput from 'components/FormInput';
 import Button from 'components/Button';
 import { IPokemon } from 'interfaces';
@@ -80,7 +79,7 @@ const PokemonDetail: React.FC = () => {
   return (
     <div>
       {loading && !data ? (
-        <Loading />
+        <p>Loading...</p>
       ) : (
         <Container>
           <Header title="Details">

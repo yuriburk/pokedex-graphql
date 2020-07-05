@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
+import PokemonSkeleton from './Skeleton';
 import { IPokemon, IPokemonTypes } from 'interfaces';
-import Loading from 'components/Loading';
 import {
   Container,
   List,
@@ -37,7 +37,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
   return (
     <Container>
       {loading ? (
-        <Loading />
+        <PokemonSkeleton />
       ) : (
         <List>
           {pokemons?.map((pokemon: IPokemon, index: number) => (

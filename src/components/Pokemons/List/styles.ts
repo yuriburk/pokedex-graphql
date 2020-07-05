@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
 import { IPokemonTypes } from 'interfaces';
 
 export const Container = styled.div``;
