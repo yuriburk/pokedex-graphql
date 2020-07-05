@@ -4,10 +4,13 @@ import ReactSelect, {
   Props as SelectProps,
 } from 'react-select';
 import { useField } from '@unform/core';
-interface Props extends SelectProps<OptionTypeBase> {
+import { customStyles } from './styles';
+
+interface IProps extends SelectProps<OptionTypeBase> {
   name: string;
 }
-const FormSelect: React.FC<Props> = ({ name, ...rest }) => {
+
+const FormSelect: React.FC<IProps> = ({ name, ...rest }) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
   useEffect(() => {
@@ -33,7 +36,7 @@ const FormSelect: React.FC<Props> = ({ name, ...rest }) => {
       defaultValue={defaultValue}
       ref={selectRef}
       classNamePrefix="react-select"
-      style={{ width: '100%' }}
+      styles={customStyles}
       {...rest}
     />
   );

@@ -35,7 +35,7 @@ const PokemonDetail: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null);
 
-  const { error, loading, data } = useQuery<{ pokemonCached: IPokemon }>(
+  const { loading, data } = useQuery<{ pokemonCached: IPokemon }>(
     GET_POKEMON_CACHED,
     {
       variables: { id: history.location.state },
