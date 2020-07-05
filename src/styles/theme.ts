@@ -1,8 +1,9 @@
-import { colors } from './colors';
+import { colors, typesColors } from './colors';
 import breakpoints from './breakpoints';
 
 export const theme = {
   colors,
+  typesColors,
   breakpoints,
 };
 

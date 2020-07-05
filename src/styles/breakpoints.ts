@@ -3,7 +3,7 @@ const ScreenSizes = {
   sm: '@media only screen and (max-width: 538px)',
   md: '@media only screen and (max-width: 674px)',
   lg: '@media only screen and (max-width: 768px)',
-  xl: '@media only screen and (max-width: 934px)',
+  xl: '@media only screen and (max-width: 844px)',
   xxl: '@media only screen and (max-width: 1100px)',
   xlg: '@media only screen and (max-width: 1250px)',
 };

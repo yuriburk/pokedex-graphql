@@ -61,7 +61,6 @@ const Pokedex: React.FC = () => {
           containerStyle={{
             width: '240px',
             height: '48px',
-            marginRight: '22px',
           }}
         />
       </Header>

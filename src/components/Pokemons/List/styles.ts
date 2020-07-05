@@ -11,49 +11,36 @@ export const List = styled.ul`
   list-style: none;
 `;
 
-export const ListItem = styled.li(
-  (props) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 0 32%;
+export const ListItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
 
-    cursor: pointer;
-    min-height: 285px;
-    padding: 14px 30px;
-    border-radius: 8px;
-    margin: 4px;
-    background-color: ${(props) => props.theme.colors.secundaryDark};
+  cursor: pointer;
+  min-height: 289px;
+  padding: 14px 30px;
+  border-radius: 8px;
+  margin: 4px;
+  background-color: ${(props) => props.theme.colors.secundaryDark};
 
-    ${props.theme.breakpoints.lg} {
-      flex: 0 49%;
-      margin: 2px;
-    }
+  transition: transform ease 0.5s;
 
-    ${props.theme.breakpoints.sm} {
-      flex: 0 100%;
-    }
-
-    transition: transform ease 0.5s;
-
-    &:hover {
-      transform: translateY(-6px);
-    }
-  `,
-);
+  &:hover {
+    transform: translateY(-6px);
+  }
+`;
 
 export const PokemonInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  color: black;
 `;
 
 export const Title = styled.h2`
-  color: #fff;
+  color: ${(props) => props.theme.colors.primaryWhite};
   margin-top: 8px;
   word-break: break-word;
   overflow: hidden;
@@ -72,82 +59,23 @@ export const SpecialContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 
-  margin-top: 14px;
+  margin-bottom: 22px;
 `;
 
 interface ISpecialInfoContainerProps {
   pokemonType: IPokemonTypes;
 }
 
-const typesColors = {
-  Normal: css`
-    background: #a8a878;
-  `,
-  Fire: css`
-    background: #f08030;
-  `,
-  Fighting: css`
-    background: #c03028;
-  `,
-  Water: css`
-    background: #6890f0;
-  `,
-  Flying: css`
-    background: #a890f0;
-  `,
-  Grass: css`
-    background: #78c850;
-  `,
-  Poison: css`
-    background: #a040a0;
-  `,
-  Electric: css`
-    background: #f8d030;
-  `,
-  Ground: css`
-    background: #e0c068;
-  `,
-  Psychic: css`
-    background: #f85888;
-  `,
-  Rock: css`
-    background: #b8a038;
-  `,
-  Ice: css`
-    background: #98d8d8;
-  `,
-  Bug: css`
-    background: #a8b820;
-  `,
-  Dragon: css`
-    background: #7038f8;
-  `,
-  Ghost: css`
-    background: #705898;
-  `,
-  Dark: css`
-    background: #705848;
-  `,
-  Steel: css`
-    background: #b8b8d0;
-  `,
-  Fairy: css`
-    background: #ee99ac;
-  `,
-};
-
 export const SpecialInfoContainer = styled.div<ISpecialInfoContainerProps>`
   padding: 4px 8px;
   margin: 4px 4px 0 0;
   border-radius: 12px;
-  ${(props) => typesColors[props.pokemonType]};
+  ${(props) => props.theme.typesColors[props.pokemonType]};
 `;
 
-export const SpecialInfo = styled.p(
-  (props) => css`
-    color: ${props.theme.colors.primaryWhite};
-  `,
-);
+export const SpecialInfo = styled.p`
+  color: ${(props) => props.theme.colors.primaryWhite};
+`;
 
 export const Image = styled.img`
   width: 124px;

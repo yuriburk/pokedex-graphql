@@ -42,20 +42,20 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
         <List>
           {pokemons?.map((pokemon: IPokemon, index: number) => (
             <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
-              <Image src={pokemon.image} alt={pokemon.name} />
               <PokemonInfo>
+                <Image src={pokemon.image} alt={pokemon.name} />
                 <Title>{pokemon.name}</Title>
                 <TextInfo>#{pokemon.number}</TextInfo>
-                <SpecialContainer>
-                  {generateDistinctPokemonSpecialsArray(pokemon).map(
-                    (type, index) => (
-                      <SpecialInfoContainer key={index} pokemonType={type}>
-                        <SpecialInfo>{type}</SpecialInfo>
-                      </SpecialInfoContainer>
-                    ),
-                  )}
-                </SpecialContainer>
               </PokemonInfo>
+              <SpecialContainer>
+                {generateDistinctPokemonSpecialsArray(pokemon).map(
+                  (type, index) => (
+                    <SpecialInfoContainer key={index} pokemonType={type}>
+                      <SpecialInfo>{type}</SpecialInfo>
+                    </SpecialInfoContainer>
+                  ),
+                )}
+              </SpecialContainer>
             </ListItem>
           ))}
         </List>

@@ -13,7 +13,7 @@ export default createGlobalStyle(
       background: ${(props) => props.theme.colors.primaryDark};
       color: #fff;
       -webkit-font-smoothing: antialiased;
-      max-width: 1180px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 14px;
     }
