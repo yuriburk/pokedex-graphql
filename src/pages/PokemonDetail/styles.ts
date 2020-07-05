@@ -22,7 +22,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   h2 {
     word-break: break-word;
@@ -45,10 +45,10 @@ export const InputsContainer = styled.div`
 
 export const LineContainer = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
   margin: 8px 0;
-  width: 100%;
 
   div {
     margin: 0;

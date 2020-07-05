@@ -4,15 +4,17 @@ import ReactSelect, {
   Props as SelectProps,
 } from 'react-select';
 import { useField } from '@unform/core';
-import { customStyles } from './styles';
+
+import { Container, Label, customStyles } from './styles';
 
 interface IProps extends SelectProps<OptionTypeBase> {
   name: string;
+  label?: string;
 }
 
-const FormSelect: React.FC<IProps> = ({ name, ...rest }) => {
+const FormSelect: React.FC<IProps> = ({ name, label, ...rest }) => {
   const selectRef = useRef(null);
-  const { fieldName, defaultValue, registerField, error } = useField(name);
+  const { fieldName, defaultValue, registerField } = useField(name);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -32,13 +34,16 @@ const FormSelect: React.FC<IProps> = ({ name, ...rest }) => {
     });
   }, [fieldName, registerField, rest.isMulti]);
   return (
-    <ReactSelect
-      defaultValue={defaultValue}
-      ref={selectRef}
-      classNamePrefix="react-select"
-      styles={customStyles}
-      {...rest}
-    />
+    <Container>
+      {label && <Label>{label}</Label>}
+      <ReactSelect
+        defaultValue={defaultValue}
+        ref={selectRef}
+        classNamePrefix="react-select"
+        styles={customStyles}
+        {...rest}
+      />
+    </Container>
   );
 };
 export default FormSelect;

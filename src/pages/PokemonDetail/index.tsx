@@ -26,6 +26,12 @@ import { pokemonTypesFormArray } from 'utils/getPokemonTypes';
 interface EditPokemonFormData {
   name: string;
   number: string;
+  maxCP: string;
+  maxHP: string;
+  height: {
+    maximum: string;
+    minimum: string;
+  };
 }
 
 const PokemonDetail: React.FC = () => {
@@ -54,13 +60,19 @@ const PokemonDetail: React.FC = () => {
           name: Yup.string().required('Nome obrigatório'),
           number: Yup.string().required('Numero obrigatório'),
           image: Yup.string().required('Imagem obrigatória'),
+          height: Yup.object({
+            minimum: Yup.string().required('Tamanho mínimo obrigatório'),
+            maximum: Yup.string().required('Tamanho máximo obrigatório'),
+          }),
         });
 
         await schema.validate(data, {
           abortEarly: false,
         });
 
+        console.log(data);
         const updatedPokemon = Object.assign({}, pokemon, data);
+        console.log(pokemon, updatedPokemon);
 
         updateCachedPokemon(updatedPokemon);
 
@@ -109,48 +121,86 @@ const PokemonDetail: React.FC = () => {
                 />
               </LineContainer>
 
-              <FormInput
-                label="Image"
-                name="image"
-                defaultValue={pokemon.image}
-              />
+              <LineContainer>
+                <FormInput
+                  label="Image"
+                  name="image"
+                  defaultValue={pokemon.image}
+                />
+              </LineContainer>
 
               <LineContainer>
                 <FormInput
                   label="Max CP"
-                  name="maxcp"
+                  name="maxCP"
                   defaultValue={pokemon.maxCP}
                 />
                 <FormInput
                   label="Max HP"
-                  name="maxhp"
+                  name="maxHP"
                   defaultValue={pokemon.maxHP}
                 />
                 <FormInput
-                  label="Max Height"
-                  name="maxheight"
-                  defaultValue={pokemon.height?.maximum}
+                  label="Min Height"
+                  name="height.minimum"
+                  defaultValue={pokemon.height?.minimum}
                 />
                 <FormInput
-                  label="Min Height"
-                  name="minheight"
-                  defaultValue={pokemon.height?.minimum}
+                  label="Max Height"
+                  name="height.maximum"
+                  defaultValue={pokemon.height?.maximum}
                 />
               </LineContainer>
 
-              <LineContainer>
-                {pokemon.resistant && (
-                  <FormSelect
-                    name="resistant"
-                    options={pokemonTypesForm}
-                    defaultValue={pokemon.resistant.map((resistant) => ({
-                      value: resistant,
-                      label: resistant,
-                    }))}
-                    isMulti
-                  />
-                )}
-              </LineContainer>
+              {pokemon.resistant && (
+                <FormSelect
+                  label="Resistant"
+                  name="resistant"
+                  options={pokemonTypesForm}
+                  defaultValue={pokemon.resistant.map((resistant) => ({
+                    value: resistant,
+                    label: resistant,
+                  }))}
+                  isMulti
+                />
+              )}
+
+              {pokemon.weaknesses && (
+                <FormSelect
+                  label="Weakness"
+                  name="weaknesses"
+                  options={pokemonTypesForm}
+                  defaultValue={pokemon.weaknesses.map((weakness) => ({
+                    value: weakness,
+                    label: weakness,
+                  }))}
+                  isMulti
+                />
+              )}
+
+              <h4 style={{ marginTop: '8px' }}>Specials</h4>
+              {pokemon.attacks?.special &&
+                pokemon.attacks.special.map((pokeSpecial, index) => (
+                  <div key={index}>
+                    <p>{pokeSpecial.name}</p>
+                    <LineContainer key={index}>
+                      <FormSelect
+                        label="Type"
+                        name={`attacks.special[${index}].type`}
+                        options={pokemonTypesForm}
+                        defaultValue={{
+                          value: pokeSpecial.type,
+                          label: pokeSpecial.type,
+                        }}
+                      />
+                      <FormInput
+                        label="Damage"
+                        name={`attacks.special[${index}].damage`}
+                        defaultValue={pokeSpecial.damage}
+                      />
+                    </LineContainer>
+                  </div>
+                ))}
 
               <Button type="submit">Salvar</Button>
             </InputsContainer>

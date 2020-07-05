@@ -1,4 +1,15 @@
 import { CSSProperties } from 'react';
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Label = styled.label`
+  font-weight: bold;
+  margin-bottom: 2px;
+`;
 
 export const customStyles = {
   container: (base: CSSProperties): CSSProperties => ({
@@ -9,7 +20,9 @@ export const customStyles = {
     ...base,
     backgroundColor: '#232129',
     borderColor: '#232129',
+    padding: '6px',
     boxShadow: 'none',
+    borderRadius: '10px',
     '&:hover': {
       borderColor: '#ff9000',
     },
