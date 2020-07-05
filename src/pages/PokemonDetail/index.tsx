@@ -46,8 +46,6 @@ const PokemonDetail: React.FC = () => {
     },
   );
 
-  useEffect(() => console.log(error), [error]);
-
   const handleSubmit = useCallback(
     async (data: EditPokemonFormData) => {
       try {

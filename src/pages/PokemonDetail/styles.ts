@@ -10,7 +10,7 @@ export const Form = styled(UnForm)(
   (props) => css`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding: 24px;
     border-radius: 8px;
@@ -39,12 +39,13 @@ export const Image = styled.img`
 export const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 `;
 
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-left: 14px;
 `;
 
 export const LineContainer = styled.div`
@@ -52,6 +53,7 @@ export const LineContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 8px 0;
+  width: 100%;
 
   div {
     margin: 0;
