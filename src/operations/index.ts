@@ -9,12 +9,12 @@ export const cache: InMemoryCache = new InMemoryCache({
       fields: {
         pokemonsCached: {
           read() {
-            return pokemonsVar();
+            return pokemonsStore();
           },
         },
         pokemonCached: {
           read(_, props) {
-            return pokemonsVar().find(
+            return pokemonsStore().find(
               (pokemon) => pokemon.id === props.args?.id,
             );
           },
@@ -24,7 +24,7 @@ export const cache: InMemoryCache = new InMemoryCache({
   },
 });
 
-export const pokemonsVar: ReactiveVar<IPokemon[]> = cache.makeVar<IPokemon[]>(
+export const pokemonsStore: ReactiveVar<IPokemon[]> = cache.makeVar<IPokemon[]>(
   [],
 );
 

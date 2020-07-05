@@ -11,8 +11,10 @@ import {
   findCachedPokemons,
 } from 'operations/queries/Pokemons/cache';
 import { createPokemonsCache } from 'operations/mutations/Pokemons/cache';
+import { Container } from './styles';
+import Header from 'components/Header';
 
-const Dashboard: React.FC = () => {
+const Pokedex: React.FC = () => {
   const [filteredPokemons, setFilteredPokemons] = useState<IPokemon[]>([]);
 
   const [getPokemons, { loading }] = useLazyQuery<{
@@ -51,19 +53,25 @@ const Dashboard: React.FC = () => {
   );
 
   return (
-    <div>
-      <h1>PokeList</h1>
-      <SearchBox
-        placeholder="Search a cool pokémon here"
-        onChange={(e) => handleSearch(e.target.value)}
-      />
+    <Container>
+      <Header title="Pokédex">
+        <SearchBox
+          placeholder="Search"
+          onChange={(e) => handleSearch(e.target.value)}
+          containerStyle={{
+            width: '240px',
+            height: '48px',
+            marginRight: '22px',
+          }}
+        />
+      </Header>
       <PokemonsList
         loading={loading}
         pokemons={renderPokemons}
         handleNavigate={handleNavigate}
       />
-    </div>
+    </Container>
   );
 };
 
-export default Dashboard;
+export default Pokedex;

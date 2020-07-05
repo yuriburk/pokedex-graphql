@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 import { IPokemon } from 'interfaces';
-import { pokemonsVar } from 'operations';
+import { pokemonsStore } from 'operations';
 
 export const GET_POKEMONS_CACHED = gql`
   query GetpokemonsCached {
@@ -16,7 +16,7 @@ export const GET_POKEMON_CACHED = gql`
 `;
 
 export const findCachedPokemons = (pokemonName: string): IPokemon[] => {
-  return pokemonsVar().filter((cachedPokemon) =>
+  return pokemonsStore().filter((cachedPokemon) =>
     cachedPokemon.name
       .toLocaleLowerCase()
       .includes(pokemonName.toLocaleLowerCase()),

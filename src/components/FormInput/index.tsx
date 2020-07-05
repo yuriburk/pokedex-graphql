@@ -9,15 +9,17 @@ import { IconBaseProps } from 'react-icons';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useField } from '@unform/core';
 
-import { Container, Error } from './styles';
+import { Container, Label, InputContainer, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
   name: string;
   containerStyle?: Record<string, unknown>;
   icon?: React.ComponentType<IconBaseProps>;
 }
 
 const Input: React.FC<InputProps> = ({
+  label,
   name,
   containerStyle = {},
   icon: Icon,
@@ -46,8 +48,9 @@ const Input: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <>
-      <Container
+    <Container>
+      <Label htmlFor={name}>{label}</Label>
+      <InputContainer
         style={containerStyle}
         isErrored={!!error}
         isFilled={isFilled}
@@ -68,8 +71,8 @@ const Input: React.FC<InputProps> = ({
             <FiAlertCircle color="#c53030" size={20} />
           </Error>
         )}
-      </Container>
-    </>
+      </InputContainer>
+    </Container>
   );
 };
 

@@ -2,17 +2,27 @@ import styled, { css } from 'styled-components';
 
 import Tooltip from '../Tooltip';
 
-interface ContainerProps {
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+export const Label = styled.label`
+  font-weight: bold;
+  margin-bottom: 2px;
+`;
+
+interface IInputContainerProps {
   isFocused: boolean;
   isFilled: boolean;
   isErrored: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const InputContainer = styled.div<IInputContainerProps>`
   background: #232129;
   border-radius: 10px;
-  padding: 16px;
-  width: 100%;
+  padding: 14px;
   border: 2px solid #232129;
   color: ${(props) =>
     props.isFocused || props.isFilled ? '#ff9000' : '#666360'};

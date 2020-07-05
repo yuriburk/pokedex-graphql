@@ -29,4 +29,8 @@ export const Container = styled.div`
       -webkit-text-fill-color: #f4ede8;
     }
   }
+
+  svg {
+    color: #666360;
+  }
 `;

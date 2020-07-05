@@ -22,9 +22,9 @@ export const ListItem = styled.li(
     cursor: pointer;
     min-height: 285px;
     padding: 14px 30px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 4px;
-    background-color: ${props.theme.colors.primaryWhite};
+    background-color: ${(props) => props.theme.colors.secundaryDark};
 
     ${props.theme.breakpoints.lg} {
       flex: 0 49%;
@@ -38,7 +38,7 @@ export const ListItem = styled.li(
     transition: transform ease 0.5s;
 
     &:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
     }
   `,
 );
@@ -53,6 +53,7 @@ export const PokemonInfo = styled.div`
 `;
 
 export const Title = styled.h2`
+  color: #fff;
   margin-top: 8px;
   word-break: break-word;
   overflow: hidden;
@@ -63,7 +64,7 @@ export const Title = styled.h2`
 `;
 
 export const TextInfo = styled.p`
-  color: gray;
+  color: white;
 `;
 
 export const SpecialContainer = styled.div`
@@ -149,8 +150,9 @@ export const SpecialInfo = styled.p(
 );
 
 export const Image = styled.img`
-  width: 114px;
-  height: 114px;
+  width: 124px;
+  height: 124px;
+  border-radius: 8px;
 `;
 
 export const ButtonContainer = styled.div`

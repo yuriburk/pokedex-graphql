@@ -10,13 +10,13 @@ import { theme } from 'styles/theme';
 
 const App: React.FC = () => (
   <BrowserRouter>
-    <GlobalStyle />
+    <StyledProvider theme={theme}>
+      <GlobalStyle />
 
-    <ApolloProvider client={client}>
-      <StyledProvider theme={theme}>
+      <ApolloProvider client={client}>
         <Routes />
-      </StyledProvider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </StyledProvider>
   </BrowserRouter>
 );
 

@@ -24,8 +24,8 @@ export const GET_POKEMONS = gql`
         maximum
       }
       height {
-        minimum
         maximum
+        minimum
       }
       evolutions {
         id
