@@ -9,16 +9,14 @@ export const GET_POKEMONS_CACHED = gql`
   }
 `;
 
-export const GET_POKEMON_CACHED = gql`
-  query GetPokemon($id: String!) {
-    pokemonCached(id: $id) @client
-  }
-`;
-
-export const findCachedPokemons = (pokemonName: string): IPokemon[] => {
+export const findCachedPokemonsByName = (pokemonName: string): IPokemon[] => {
   return pokemonsStore().filter((cachedPokemon) =>
     cachedPokemon.name
       .toLocaleLowerCase()
       .includes(pokemonName.toLocaleLowerCase()),
   );
+};
+
+export const findCachedPokemonById = (id: string): IPokemon | undefined => {
+  return pokemonsStore().find((pokemon) => pokemon.id === id);
 };
