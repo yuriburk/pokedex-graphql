@@ -1,6 +1,11 @@
-import React, { useRef, useState, useCallback, useMemo } from 'react';
-import { useQuery } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+} from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -9,23 +14,28 @@ import FormInput from 'components/FormInput';
 import FormSelect from 'components/FormSelect';
 import Button from 'components/Button';
 import Header from 'components/Header';
+import { SpecialContainer } from 'components/Pokemons/List/styles';
 import { IPokemon } from 'interfaces';
-import { GET_POKEMON_CACHED } from 'operations/queries/Pokemons/cache';
+import { findCachedPokemonById } from 'operations/queries/Pokemons/cache';
 import { updateCachedPokemon } from 'operations/mutations/Pokemons/cache';
 import getValidationErrors from 'utils/getValidationError';
+import { pokemonTypesFormArray } from 'utils/getPokemonTypes';
 import {
   Container,
   Form,
   ProfileContainer,
   Image,
+  TextInfo,
   InputsContainer,
+  Fieldset,
   LineContainer,
+  SpecialsContainer,
 } from './styles';
-import { pokemonTypesFormArray } from 'utils/getPokemonTypes';
 
 interface EditPokemonFormData {
   name: string;
   number: string;
+  classification: string;
   maxCP: string;
   maxHP: string;
   height: {
@@ -36,21 +46,20 @@ interface EditPokemonFormData {
 
 const PokemonDetail: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon>({} as IPokemon);
+  const [isDisabled, setIsDisabled] = useState(false);
 
-  const history = useHistory();
+  const { id } = useParams();
+  console.log(id);
 
   const formRef = useRef<FormHandles>(null);
 
-  const { loading, data } = useQuery<{ pokemonCached: IPokemon }>(
-    GET_POKEMON_CACHED,
-    {
-      variables: { id: history.location.state },
-      onCompleted: (data) => {
-        console.log('complete', data);
-        setPokemon(data.pokemonCached);
-      },
-    },
-  );
+  useEffect(() => {
+    const cachedPokemon = findCachedPokemonById(id);
+
+    if (cachedPokemon) {
+      setPokemon(cachedPokemon);
+    }
+  }, [id]);
 
   const handleSubmit = useCallback(
     async (data: EditPokemonFormData) => {
@@ -75,8 +84,6 @@ const PokemonDetail: React.FC = () => {
         console.log(pokemon, updatedPokemon);
 
         updateCachedPokemon(updatedPokemon);
-
-        history.push('/');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -86,104 +93,107 @@ const PokemonDetail: React.FC = () => {
         }
       }
     },
-    [history, pokemon],
+    [pokemon],
   );
 
   const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
 
   return (
-    <div>
-      {loading && !data ? (
-        <p>Loading...</p>
-      ) : (
-        <Container>
-          <Header title="Details">
-            <FiArrowLeft size={42} onClick={() => history.goBack()} />
-          </Header>
-          <Form ref={formRef} onSubmit={(data) => handleSubmit(data)}>
-            <ProfileContainer>
-              <Image src={pokemon.image} alt={pokemon.name} />
-              <h2>{pokemon.name}</h2>
-              <p>#{pokemon.number}</p>
-            </ProfileContainer>
+    <Container>
+      <Header title="Details">
+        <Link to="/">
+          <FiArrowLeft size={42} />
+        </Link>
+      </Header>
+      <Form ref={formRef} onSubmit={(data) => handleSubmit(data)}>
+        <ProfileContainer>
+          <Image src={pokemon.image} alt={pokemon.name} />
+          <h2>{pokemon.name}</h2>
+          <TextInfo>#{pokemon.number}</TextInfo>
+        </ProfileContainer>
 
-            <InputsContainer>
-              <LineContainer>
-                <FormInput
-                  label="Name"
-                  name="name"
-                  defaultValue={pokemon.name}
-                />
-                <FormInput
-                  label="Number"
-                  name="number"
-                  defaultValue={pokemon.number}
-                />
-              </LineContainer>
+        <InputsContainer>
+          <Fieldset disabled={isDisabled}>
+            <LineContainer>
+              <FormInput label="Name" name="name" defaultValue={pokemon.name} />
+              <FormInput
+                label="Number"
+                name="number"
+                defaultValue={pokemon.number}
+              />
+              <FormInput
+                label="Classification"
+                name="classification"
+                defaultValue={pokemon.classification}
+              />
+            </LineContainer>
 
-              <LineContainer>
-                <FormInput
-                  label="Image"
-                  name="image"
-                  defaultValue={pokemon.image}
-                />
-              </LineContainer>
+            <LineContainer>
+              <FormInput
+                label="Image"
+                name="image"
+                defaultValue={pokemon.image}
+              />
+            </LineContainer>
 
-              <LineContainer>
-                <FormInput
-                  label="Max CP"
-                  name="maxCP"
-                  defaultValue={pokemon.maxCP}
-                />
-                <FormInput
-                  label="Max HP"
-                  name="maxHP"
-                  defaultValue={pokemon.maxHP}
-                />
-                <FormInput
-                  label="Min Height"
-                  name="height.minimum"
-                  defaultValue={pokemon.height?.minimum}
-                />
-                <FormInput
-                  label="Max Height"
-                  name="height.maximum"
-                  defaultValue={pokemon.height?.maximum}
-                />
-              </LineContainer>
+            <LineContainer>
+              <FormInput
+                label="Max CP"
+                name="maxCP"
+                defaultValue={pokemon.maxCP}
+              />
+              <FormInput
+                label="Max HP"
+                name="maxHP"
+                defaultValue={pokemon.maxHP}
+              />
+              <FormInput
+                label="Min Height"
+                name="height.minimum"
+                defaultValue={pokemon.height?.minimum}
+              />
+              <FormInput
+                label="Max Height"
+                name="height.maximum"
+                defaultValue={pokemon.height?.maximum}
+              />
+            </LineContainer>
 
-              {pokemon.resistant && (
-                <FormSelect
-                  label="Resistant"
-                  name="resistant"
-                  options={pokemonTypesForm}
-                  defaultValue={pokemon.resistant.map((resistant) => ({
-                    value: resistant,
-                    label: resistant,
-                  }))}
-                  isMulti
-                />
-              )}
+            {pokemon.resistant && (
+              <FormSelect
+                label="Resistant"
+                name="resistant"
+                options={pokemonTypesForm}
+                defaultValue={pokemon.resistant.map((resistant) => ({
+                  value: resistant,
+                  label: resistant,
+                }))}
+                isMulti
+                isDisabled={isDisabled}
+              />
+            )}
 
-              {pokemon.weaknesses && (
-                <FormSelect
-                  label="Weakness"
-                  name="weaknesses"
-                  options={pokemonTypesForm}
-                  defaultValue={pokemon.weaknesses.map((weakness) => ({
-                    value: weakness,
-                    label: weakness,
-                  }))}
-                  isMulti
-                />
-              )}
+            {pokemon.weaknesses && (
+              <FormSelect
+                label="Weakness"
+                name="weaknesses"
+                options={pokemonTypesForm}
+                defaultValue={pokemon.weaknesses.map((weakness) => ({
+                  value: weakness,
+                  label: weakness,
+                }))}
+                isMulti
+                isDisabled={isDisabled}
+              />
+            )}
 
-              <h4 style={{ marginTop: '8px' }}>Specials</h4>
+            <h4>Specials</h4>
+            <LineContainer>
               {pokemon.attacks?.special &&
                 pokemon.attacks.special.map((pokeSpecial, index) => (
-                  <div key={index}>
-                    <p>{pokeSpecial.name}</p>
-                    <LineContainer key={index}>
+                  <SpecialsContainer key={index}>
+                    <TextInfo>{pokeSpecial.name}</TextInfo>
+                    <SpecialContainer>
                       <FormSelect
                         label="Type"
                         name={`attacks.special[${index}].type`}
@@ -192,22 +202,24 @@ const PokemonDetail: React.FC = () => {
                           value: pokeSpecial.type,
                           label: pokeSpecial.type,
                         }}
+                        controlStyles={{ width: '120px' }}
+                        isDisabled={isDisabled}
                       />
                       <FormInput
                         label="Damage"
                         name={`attacks.special[${index}].damage`}
                         defaultValue={pokeSpecial.damage}
                       />
-                    </LineContainer>
-                  </div>
+                    </SpecialContainer>
+                  </SpecialsContainer>
                 ))}
+            </LineContainer>
+          </Fieldset>
 
-              <Button type="submit">Salvar</Button>
-            </InputsContainer>
-          </Form>
-        </Container>
-      )}
-    </div>
+          <Button type="submit">Salvar</Button>
+        </InputsContainer>
+      </Form>
+    </Container>
   );
 };
 

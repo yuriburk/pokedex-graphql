@@ -52,7 +52,8 @@ export const Title = styled.h2`
 `;
 
 export const TextInfo = styled.p`
-  color: white;
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.secundaryWhite};
 `;
 
 export const SpecialContainer = styled.div`

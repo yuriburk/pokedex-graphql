@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin-bottom: 8px;
 `;
 
 export const Label = styled.label`
@@ -11,7 +13,9 @@ export const Label = styled.label`
   margin-bottom: 2px;
 `;
 
-export const customStyles = {
+export const customStyles = (
+  controlStyles?: CSSProperties,
+): Record<string, unknown> => ({
   container: (base: CSSProperties): CSSProperties => ({
     ...base,
     flex: 1,
@@ -26,6 +30,7 @@ export const customStyles = {
     '&:hover': {
       borderColor: '#ff9000',
     },
+    ...controlStyles,
   }),
   multiValue: (base: CSSProperties): CSSProperties => ({
     ...base,
@@ -47,4 +52,8 @@ export const customStyles = {
       backgroundColor: '#1d1c24',
     },
   }),
-};
+  singleValue: (base: CSSProperties): Record<string, unknown> => ({
+    ...base,
+    color: '#fff',
+  }),
+});

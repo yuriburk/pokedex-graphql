@@ -36,11 +36,20 @@ export const Image = styled.img`
   margin-bottom: 14px;
 `;
 
+export const TextInfo = styled.p`
+  font-weight: bold;
+  color: ${(props) => props.theme.colors.secundaryWhite};
+`;
+
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
   margin-left: 14px;
+`;
+
+export const Fieldset = styled.fieldset`
+  border: 0;
 `;
 
 export const LineContainer = styled.div`
@@ -57,4 +66,14 @@ export const LineContainer = styled.div`
   div + div {
     margin-left: 8px;
   }
+`;
+
+export const SpecialsContainer = styled.div`
+  margin: '4px 0 2px 0';
+`;
+
+export const SpecialContainer = styled.div`
+  display: flex;
+  flex: 1;
+  margin: 8px 0;
 `;

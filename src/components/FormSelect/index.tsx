@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, CSSProperties } from 'react';
 import ReactSelect, {
   OptionTypeBase,
   Props as SelectProps,
@@ -10,9 +10,15 @@ import { Container, Label, customStyles } from './styles';
 interface IProps extends SelectProps<OptionTypeBase> {
   name: string;
   label?: string;
+  controlStyles?: CSSProperties;
 }
 
-const FormSelect: React.FC<IProps> = ({ name, label, ...rest }) => {
+const FormSelect: React.FC<IProps> = ({
+  name,
+  label,
+  controlStyles,
+  ...rest
+}) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
   useEffect(() => {
@@ -40,7 +46,7 @@ const FormSelect: React.FC<IProps> = ({ name, label, ...rest }) => {
         defaultValue={defaultValue}
         ref={selectRef}
         classNamePrefix="react-select"
-        styles={customStyles}
+        styles={customStyles(controlStyles)}
         {...rest}
       />
     </Container>

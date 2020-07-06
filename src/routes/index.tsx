@@ -9,7 +9,7 @@ const Error = () => <div>Error</div>;
 const Routes: React.FC = () => (
   <Switch>
     <Route exact path="/" component={Pokedex} />
-    <Route path="/edit" component={PokemonDetail} />
+    <Route path="/edit/:id" component={PokemonDetail} />
     <Route path="*" component={Error} />
   </Switch>
 );

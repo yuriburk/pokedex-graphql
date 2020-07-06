@@ -9,4 +9,8 @@ export const Container = styled.div`
   svg {
     cursor: pointer;
   }
+
+  a {
+    color: ${(props) => props.theme.colors.primaryWhite};
+  }
 `;
