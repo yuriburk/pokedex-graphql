@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, wait } from '@testing-library/react';
+import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 
 import PokemonsList from 'components/PokemonsList';
 import { IPokemon } from 'interfaces';
@@ -84,7 +84,7 @@ describe('PokemonsList Component', () => {
 
     fireEvent.click(listItem);
 
-    await wait(() =>
+    await waitFor(() =>
       expect(mockedHistoryPush).toHaveBeenCalledWith(`/edit/${pokemon.id}`),
     );
   });
