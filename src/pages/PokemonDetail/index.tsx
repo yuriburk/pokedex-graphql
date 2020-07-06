@@ -50,7 +50,6 @@ interface EditPokemonFormData {
 
 const PokemonDetail: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon>({} as IPokemon);
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const history = useHistory();
   const client = useApolloClient();
@@ -139,7 +138,7 @@ const PokemonDetail: React.FC = () => {
         </ProfileContainer>
 
         <InputsContainer>
-          <Fieldset disabled={isDisabled}>
+          <Fieldset>
             <LineContainer>
               <FormInput label="Name" name="name" defaultValue={pokemon.name} />
               <FormInput
@@ -206,7 +205,6 @@ const PokemonDetail: React.FC = () => {
                   label: resistant,
                 }))}
                 isMulti
-                isDisabled={isDisabled}
               />
             )}
 
@@ -221,7 +219,6 @@ const PokemonDetail: React.FC = () => {
                   label: weakness,
                 }))}
                 isMulti
-                isDisabled={isDisabled}
               />
             )}
 
@@ -249,7 +246,6 @@ const PokemonDetail: React.FC = () => {
                         value: pokeSpecial.type,
                         label: pokeSpecial.type,
                       }}
-                      isDisabled={isDisabled}
                     />
                   </SpecialContainer>
                 </LineContainer>

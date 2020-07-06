@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-fzpjYC gpmpYc"
+  >
+    <div
+      class="sc-fzoXzr bweXQK"
+    >
+      <h1>
+        Details
+      </h1>
+      <svg
+        fill="none"
+        height="42"
+        size="42"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="42"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="19"
+          x2="5"
+          y1="12"
+          y2="12"
+        />
+        <polyline
+          points="12 19 5 12 12 5"
+        />
+      </svg>
+    </div>
+    <form
+      class="sc-fznxsB grqhhL"
+    >
+      <div
+        class="sc-fznJRM cHmYoj"
+      >
+        <img
+          class="sc-fznWqX jtnVd"
+        />
+        <h2 />
+        <p
+          class="sc-fzoiQi bdygDM"
+        >
+          #
+        </p>
+      </div>
+      <div
+        class="sc-fzqARJ bHlPUo"
+      >
+        <fieldset
+          class="sc-fzqNqU inCzMk"
+        >
+          <div
+            class="sc-fzoyTs kFtWTx"
+          >
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="name"
+              >
+                Name
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="name"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="number"
+              >
+                Number
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="number"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="classification"
+              >
+                Classification
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="classification"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-fzoyTs kFtWTx"
+          >
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="image"
+              >
+                Image
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="image"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="maxCP"
+              >
+                Max CP
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="maxCP"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="maxHP"
+              >
+                Max HP
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="maxHP"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-fzoyTs kFtWTx"
+          >
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="weight.minimum"
+              >
+                Min Weight
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="weight.minimum"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="weight.maximum"
+              >
+                Max Weight
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="weight.maximum"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="height.minimum"
+              >
+                Min Height
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="height.minimum"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="sc-AxirZ jFeNgR"
+            >
+              <label
+                class="sc-AxiKw cJozpM"
+                for="height.maximum"
+              >
+                Max Height
+              </label>
+              <div
+                class="sc-AxhCb LJpH"
+                data-testid="input-container"
+              >
+                <input
+                  name="height.maximum"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <h4>
+            Specials
+          </h4>
+        </fieldset>
+        <button
+          class="sc-fzoLag isDFBH"
+          type="submit"
+        >
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
