@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokedex Component should be able to render without errors 1`] = `
+<div>
+  <div
+    class="sc-fznKkj lbPMLS"
+  >
+    <div
+      class="sc-fznZeY heAsA-d"
+    >
+      <h1>
+        Pokédex
+      </h1>
+      <div
+        class="sc-fznyAO gwRYLQ"
+        style="width: 240px; height: 48px;"
+      >
+        <input
+          placeholder="Search"
+        />
+        <svg
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="11"
+            cy="11"
+            r="8"
+          />
+          <line
+            x1="21"
+            x2="16.65"
+            y1="21"
+            y2="16.65"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

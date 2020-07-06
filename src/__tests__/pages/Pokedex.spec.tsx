@@ -3,11 +3,10 @@ import { render, cleanup } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { ThemeProvider } from 'styled-components';
 
-import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
-import PokemonDetail from 'pages/PokemonDetail';
 import { theme } from 'styles/theme';
+import Pokedex from 'pages/Pokedex';
 import { IPokemon } from 'interfaces';
-import { act } from 'react-dom/test-utils';
+import { GET_POKEMONS_CACHED } from 'operations/queries/Pokemons/cache';
 
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
@@ -54,7 +53,7 @@ const pokemon: IPokemon = {
 const mocks = [
   {
     request: {
-      query: GET_POKEMONS,
+      query: GET_POKEMONS_CACHED,
       variables: {
         count: 151,
       },
@@ -67,19 +66,19 @@ const mocks = [
   },
 ];
 
-const PokemonListWrapper = () => (
+const PokedexWrapper = () => (
   <MockedProvider mocks={mocks} addTypename={false}>
     <ThemeProvider theme={theme}>
-      <PokemonDetail />
+      <Pokedex />
     </ThemeProvider>
   </MockedProvider>
 );
 
-describe('PokemonDetail Component', () => {
+describe('Pokedex Component', () => {
   afterEach(cleanup);
 
-  it('should be able to take a snapshot', () => {
-    const { container } = render(<PokemonListWrapper />);
+  it('should be able to render without errors', () => {
+    const { container } = render(<PokedexWrapper />);
 
     expect(container).toMatchSnapshot();
   });

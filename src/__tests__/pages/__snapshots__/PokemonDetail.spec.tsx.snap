@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="sc-fzpjYC gpmpYc"
   >
@@ -271,5 +271,5 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
       </div>
     </form>
   </div>
-</DocumentFragment>
+</div>
 `;
