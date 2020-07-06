@@ -14,7 +14,6 @@ import FormInput from 'components/FormInput';
 import FormSelect from 'components/FormSelect';
 import Button from 'components/Button';
 import Header from 'components/Header';
-import { SpecialContainer } from 'components/Pokemons/List/styles';
 import { IPokemon } from 'interfaces';
 import { findCachedPokemonById } from 'operations/queries/Pokemons/cache';
 import { updateCachedPokemon } from 'operations/mutations/Pokemons/cache';
@@ -29,8 +28,11 @@ import {
   InputsContainer,
   Fieldset,
   LineContainer,
-  SpecialsContainer,
+  SpecialContainer,
 } from './styles';
+import { useApolloClient } from '@apollo/client';
+import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
+import { pokemonsStore } from 'operations';
 
 interface EditPokemonFormData {
   name: string;
@@ -47,6 +49,7 @@ interface EditPokemonFormData {
 const PokemonDetail: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon>({} as IPokemon);
   const [isDisabled, setIsDisabled] = useState(false);
+  const client = useApolloClient();
 
   const { id } = useParams();
 
@@ -59,6 +62,22 @@ const PokemonDetail: React.FC = () => {
       setPokemon(cachedPokemon);
     }
   }, [id]);
+
+  const updateCache = useCallback(
+    (pokemon: IPokemon) => {
+      updateCachedPokemon(pokemon);
+      const data = client.readQuery({
+        query: GET_POKEMONS,
+        variables: { count: 151 },
+      });
+      client.writeQuery({
+        query: GET_POKEMONS,
+        variables: { count: 151 },
+        data: { pokemons: pokemonsStore() },
+      });
+    },
+    [client],
+  );
 
   const handleSubmit = useCallback(
     async (data: EditPokemonFormData) => {
@@ -78,9 +97,7 @@ const PokemonDetail: React.FC = () => {
           abortEarly: false,
         });
 
-        const updatedPokemon = Object.assign({}, pokemon, data);
-
-        updateCachedPokemon(updatedPokemon);
+        updateCache(Object.assign({}, pokemon, data));
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -90,7 +107,7 @@ const PokemonDetail: React.FC = () => {
         }
       }
     },
-    [pokemon],
+    [updateCache, pokemon],
   );
 
   const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
@@ -185,32 +202,33 @@ const PokemonDetail: React.FC = () => {
             )}
 
             <h4>Specials</h4>
-            <LineContainer>
-              {pokemon.attacks?.special &&
-                pokemon.attacks.special.map((pokeSpecial, index) => (
-                  <SpecialsContainer key={index}>
-                    <TextInfo>{pokeSpecial.name}</TextInfo>
-                    <SpecialContainer>
-                      <FormSelect
-                        label="Type"
-                        name={`attacks.special[${index}].type`}
-                        options={pokemonTypesForm}
-                        defaultValue={{
-                          value: pokeSpecial.type,
-                          label: pokeSpecial.type,
-                        }}
-                        controlStyles={{ width: '120px' }}
-                        isDisabled={isDisabled}
-                      />
-                      <FormInput
-                        label="Damage"
-                        name={`attacks.special[${index}].damage`}
-                        defaultValue={pokeSpecial.damage}
-                      />
-                    </SpecialContainer>
-                  </SpecialsContainer>
-                ))}
-            </LineContainer>
+            {pokemon.attacks?.special &&
+              pokemon.attacks.special.map((pokeSpecial, index) => (
+                <LineContainer key={index}>
+                  <SpecialContainer>
+                    <FormInput
+                      label="Name"
+                      name={`attacks.special[${index}].name`}
+                      defaultValue={pokeSpecial.name}
+                    />
+                    <FormInput
+                      label="Damage"
+                      name={`attacks.special[${index}].damage`}
+                      defaultValue={pokeSpecial.damage}
+                    />
+                    <FormSelect
+                      label="Type"
+                      name={`attacks.special[${index}].type`}
+                      options={pokemonTypesForm}
+                      defaultValue={{
+                        value: pokeSpecial.type,
+                        label: pokeSpecial.type,
+                      }}
+                      isDisabled={isDisabled}
+                    />
+                  </SpecialContainer>
+                </LineContainer>
+              ))}
           </Fieldset>
 
           <Button type="submit">Salvar</Button>

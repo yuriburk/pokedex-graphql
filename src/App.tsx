@@ -11,6 +11,7 @@ import getClient from 'operations';
 import GlobalStyle from 'styles/global';
 import Routes from 'routes';
 import { theme } from 'styles/theme';
+import { HomeSkeleton } from 'components/Skeleton';
 
 const App: React.FC = () => {
   const [client, setClient] = useState<
@@ -21,22 +22,18 @@ const App: React.FC = () => {
     getClient().then((client) => setClient(client));
   }, []);
 
-  if (!client) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
   return (
     <BrowserRouter>
       <StyledProvider theme={theme}>
         <GlobalStyle />
 
-        <ApolloProvider client={client}>
-          <Routes />
-        </ApolloProvider>
+        {client ? (
+          <ApolloProvider client={client}>
+            <Routes />
+          </ApolloProvider>
+        ) : (
+          <HomeSkeleton />
+        )}
       </StyledProvider>
     </BrowserRouter>
   );

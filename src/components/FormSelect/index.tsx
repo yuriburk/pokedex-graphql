@@ -10,15 +10,9 @@ import { Container, Label, customStyles } from './styles';
 interface IProps extends SelectProps<OptionTypeBase> {
   name: string;
   label?: string;
-  controlStyles?: CSSProperties;
 }
 
-const FormSelect: React.FC<IProps> = ({
-  name,
-  label,
-  controlStyles,
-  ...rest
-}) => {
+const FormSelect: React.FC<IProps> = ({ name, label, ...rest }) => {
   const selectRef = useRef(null);
   const { fieldName, defaultValue, registerField } = useField(name);
   useEffect(() => {
@@ -46,7 +40,7 @@ const FormSelect: React.FC<IProps> = ({
         defaultValue={defaultValue}
         ref={selectRef}
         classNamePrefix="react-select"
-        styles={customStyles(controlStyles)}
+        styles={customStyles}
         {...rest}
       />
     </Container>

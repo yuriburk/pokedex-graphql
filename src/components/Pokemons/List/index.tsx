@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import PokemonSkeleton from './Skeleton';
+import { PokemonSkeleton } from '../../Skeleton';
 import { IPokemon, IPokemonTypes } from 'interfaces';
 import {
   Container,

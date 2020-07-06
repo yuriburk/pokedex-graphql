@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect, useMemo } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 

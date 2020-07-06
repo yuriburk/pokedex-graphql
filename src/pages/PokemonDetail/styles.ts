@@ -68,10 +68,6 @@ export const LineContainer = styled.div`
   }
 `;
 
-export const SpecialsContainer = styled.div`
-  margin: '4px 0 2px 0';
-`;
-
 export const SpecialContainer = styled.div`
   display: flex;
   flex: 1;

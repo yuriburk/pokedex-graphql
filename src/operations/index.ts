@@ -4,12 +4,11 @@ import {
   ReactiveVar,
   NormalizedCacheObject,
 } from '@apollo/client';
-import { persistCache, CachePersistor } from 'apollo-cache-persist';
+import { CachePersistor } from 'apollo-cache-persist';
 import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
 
 import resolvers from './mutations';
 import { IPokemon } from 'interfaces';
-import { GET_POKEMONS_CACHED } from './queries/Pokemons/cache';
 import { GET_POKEMONS } from './queries/Pokemons/server';
 
 const cache: InMemoryCache = new InMemoryCache({
