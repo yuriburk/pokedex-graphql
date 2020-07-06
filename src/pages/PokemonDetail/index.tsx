@@ -197,6 +197,7 @@ const PokemonDetail: React.FC = () => {
 
             {pokemon.resistant && (
               <FormSelect
+                placeholder="Select resistant types"
                 label="Resistant"
                 name="resistant"
                 options={pokemonTypesForm}
@@ -211,6 +212,7 @@ const PokemonDetail: React.FC = () => {
 
             {pokemon.weaknesses && (
               <FormSelect
+                placeholder="Select weakness types"
                 label="Weakness"
                 name="weaknesses"
                 options={pokemonTypesForm}
@@ -239,6 +241,7 @@ const PokemonDetail: React.FC = () => {
                       defaultValue={pokeSpecial.damage}
                     />
                     <FormSelect
+                      placeholder="Select type"
                       label="Type"
                       name={`attacks.special[${index}].type`}
                       options={pokemonTypesForm}
