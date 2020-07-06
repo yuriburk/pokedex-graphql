@@ -7,7 +7,7 @@ export const PokemonSkeleton: React.FC = () => {
   const generateSkeletons = useMemo(
     () =>
       Array.from(Array(18).keys()).map((key) => (
-        <ListItem key={key}>
+        <ListItem key={key} data-testid="list-item">
           <SkeletonItem width={140} height={124} />
           <SkeletonItem height={15} width={80} />
           <SkeletonItem

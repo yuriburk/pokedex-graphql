@@ -1,0 +1,1101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonsList Component should be able to take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1wwgopu-SkeletonTheme"
+  >
+    <div
+      style="display: flex; justify-content: space-between; margin-bottom: 8px;"
+    >
+      <span>
+        <span
+          class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+          style="width: 190px; height: 40px;"
+        >
+          ‌
+        </span>
+      </span>
+      <span>
+        <span
+          class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+          style="width: 190px; height: 40px;"
+        >
+          ‌
+        </span>
+      </span>
+    </div>
+    <div
+      class="css-1wwgopu-SkeletonTheme"
+    >
+      <ul
+        class="sc-AxhCb gzfbtb"
+      >
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PokemonsSkeleton Component should be able to take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1wwgopu-SkeletonTheme"
+  >
+    <div
+      style="display: flex; justify-content: space-between; margin-bottom: 8px;"
+    >
+      <span>
+        <span
+          class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+          style="width: 190px; height: 40px;"
+        >
+          ‌
+        </span>
+      </span>
+      <span>
+        <span
+          class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+          style="width: 190px; height: 40px;"
+        >
+          ‌
+        </span>
+      </span>
+    </div>
+    <div
+      class="css-1wwgopu-SkeletonTheme"
+    >
+      <ul
+        class="sc-AxhCb gzfbtb"
+      >
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+        <li
+          class="sc-AxhUy dOuvcL"
+          data-testid="list-item"
+        >
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 140px; height: 124px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="width: 80px; height: 15px;"
+            >
+              ‌
+            </span>
+          </span>
+          <span>
+            <span
+              class="react-loading-skeleton sc-AxirZ mmKyu css-1vmnjpn-skeletonStyles-Skeleton"
+              style="border-radius: 14px; margin-bottom: 24px; width: 50px; height: 25px;"
+            >
+              ‌
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;

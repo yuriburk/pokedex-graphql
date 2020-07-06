@@ -51,6 +51,7 @@ const Input: React.FC<InputProps> = ({
     <Container>
       <Label htmlFor={name}>{label}</Label>
       <InputContainer
+        data-testid="input-container"
         style={containerStyle}
         isErrored={!!error}
         isFilled={isFilled}
