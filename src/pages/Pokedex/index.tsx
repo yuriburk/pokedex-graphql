@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
 
-import PokemonsList from 'components/Pokemons/List';
+import PokemonsList from 'components/PokemonsList';
 import SearchBox from 'components/SearchBox';
 import { IPokemon } from 'interfaces';
 import { GET_POKEMONS } from 'operations/queries/Pokemons/server';

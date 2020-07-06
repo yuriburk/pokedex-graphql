@@ -11,7 +11,7 @@ import getClient from 'operations';
 import GlobalStyle from 'styles/global';
 import Routes from 'routes';
 import { theme } from 'styles/theme';
-import { HomeSkeleton } from 'components/Skeleton';
+import { HomeSkeleton } from 'components/Skeleton/Home';
 
 const App: React.FC = () => {
   const [client, setClient] = useState<

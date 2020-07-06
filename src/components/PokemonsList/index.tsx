@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { PokemonSkeleton } from '../../Skeleton';
+import { PokemonSkeleton } from '../Skeleton/Pokemons';
 import { IPokemon, IPokemonTypes } from 'interfaces';
 import {
   Container,
@@ -50,6 +50,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
         <List>
           {pokemons?.map((pokemon: IPokemon, index: number) => (
             <ListItem
+              data-testid="list-item"
               key={index}
               onClick={() => handleNavigate(pokemon)}
               style={containerStyle}

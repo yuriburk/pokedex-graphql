@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import { ListItem, List } from '../Pokemons/List/styles';
-import { SkeletonThemeContainer, SkeletonItem } from './styles';
+import { ListItem, List } from '../../PokemonsList/styles';
+import { SkeletonThemeContainer, SkeletonItem } from '../styles';
 
 export const PokemonSkeleton: React.FC = () => {
   const generateSkeletons = useMemo(
@@ -23,24 +23,6 @@ export const PokemonSkeleton: React.FC = () => {
   return (
     <SkeletonThemeContainer color="#202020" highlightColor="#444">
       <List>{generateSkeletons}</List>
-    </SkeletonThemeContainer>
-  );
-};
-
-export const HomeSkeleton: React.FC = () => {
-  return (
-    <SkeletonThemeContainer>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '8px',
-        }}
-      >
-        <SkeletonItem width={190} height={40} />
-        <SkeletonItem width={190} height={40} />
-      </div>
-      <PokemonSkeleton />
     </SkeletonThemeContainer>
   );
 };

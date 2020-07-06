@@ -5,14 +5,14 @@ import React, {
   useMemo,
   useEffect,
 } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import FormInput from 'components/FormInput';
 import FormSelect from 'components/FormSelect';
-import PokemonsList from 'components/Pokemons/List';
+import PokemonsList from 'components/PokemonsList';
 import Button from 'components/Button';
 import Header from 'components/Header';
 import { IPokemon } from 'interfaces';
@@ -51,10 +51,10 @@ interface EditPokemonFormData {
 const PokemonDetail: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon>({} as IPokemon);
   const [isDisabled, setIsDisabled] = useState(false);
+
+  const history = useHistory();
   const client = useApolloClient();
-
   const { id } = useParams();
-
   const formRef = useRef<FormHandles>(null);
 
   useEffect(() => {
@@ -96,6 +96,8 @@ const PokemonDetail: React.FC = () => {
         });
 
         updateCache(Object.assign({}, pokemon, data));
+
+        history.push('/');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
@@ -105,7 +107,7 @@ const PokemonDetail: React.FC = () => {
         }
       }
     },
-    [updateCache, pokemon],
+    [updateCache, pokemon, history],
   );
 
   const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
