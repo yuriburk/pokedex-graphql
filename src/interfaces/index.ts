@@ -3,15 +3,15 @@ export interface IPokemon {
   image: string;
   name: string;
   number: string;
-  weaknesses: string[];
+  weaknesses?: string[];
   classification: string;
-  resistant: string[];
+  resistant?: string[];
   maxCP: number;
   maxHP: number;
   attacks: {
     special: {
       name: string;
-      type: string;
+      type?: string;
       damage: number;
     }[];
   };
@@ -23,7 +23,7 @@ export interface IPokemon {
     minimum: string;
     maximum: string;
   };
-  evolutions: [
+  evolutions?: [
     {
       id: string;
     },

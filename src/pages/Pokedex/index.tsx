@@ -28,6 +28,7 @@ const Pokedex: React.FC = () => {
   const { data: cachedData } = useQuery(GET_POKEMONS_CACHED, {
     variables: { count: 151 },
     onCompleted: (data) => {
+      console.log('completed', data);
       if (data.pokemonsCached.length === 0) {
         getPokemons();
       }

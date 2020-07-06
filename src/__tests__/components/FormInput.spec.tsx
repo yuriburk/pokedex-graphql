@@ -31,7 +31,7 @@ describe('FormInput Component', () => {
     );
 
     const inputElement = getByPlaceholderText('E-mail');
-    const inputContainerElement = getByTestId('input-container');
+    const inputContainerElement = getByTestId('input-container-email');
 
     fireEvent.focus(inputElement);
 
@@ -54,7 +54,7 @@ describe('FormInput Component', () => {
     );
 
     const inputElement = getByPlaceholderText('E-mail');
-    const inputContainerElement = getByTestId('input-container');
+    const inputContainerElement = getByTestId('input-container-email');
 
     fireEvent.change(inputElement, {
       target: { value: 'johndoe@example.com.br' },

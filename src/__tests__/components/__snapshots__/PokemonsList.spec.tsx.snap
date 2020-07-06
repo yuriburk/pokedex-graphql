@@ -10,7 +10,7 @@ exports[`PokemonsList Component should be able to take a snapshot 1`] = `
     >
       <li
         class="sc-AxiKw hYtiYe"
-        data-testid="list-item"
+        data-testid="list-item-Pikachu"
       >
         <div
           class="sc-AxhCb fjiAYs"

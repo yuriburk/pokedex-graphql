@@ -112,7 +112,7 @@ const PokemonDetail: React.FC = () => {
   const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
 
   const getPokemonEvolutions = useCallback(() => {
-    if (pokemon.evolutions?.length > 0) {
+    if (pokemon.evolutions) {
       const pokemonsEvolutions = pokemon.evolutions.map((evolution) =>
         findCachedPokemonById(evolution.id),
       );
@@ -208,13 +208,13 @@ const PokemonDetail: React.FC = () => {
               />
             )}
 
-            {pokemon.weaknesses && (
+            {pokemon && (
               <FormSelect
                 placeholder="Select weakness types"
                 label="Weakness"
                 name="weaknesses"
                 options={pokemonTypesForm}
-                defaultValue={pokemon.weaknesses.map((weakness) => ({
+                defaultValue={pokemon.weaknesses?.map((weakness) => ({
                   value: weakness,
                   label: weakness,
                 }))}

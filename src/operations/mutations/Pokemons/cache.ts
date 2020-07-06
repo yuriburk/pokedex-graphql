@@ -14,6 +14,7 @@ export const updateCachedPokemon = (pokemon: IPokemon): void => {
 };
 
 export const createPokemonsCache = (pokemons: IPokemon[]): void => {
+  console.log('create cache');
   pokemonsStore(pokemons);
 };
 

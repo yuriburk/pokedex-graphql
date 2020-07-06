@@ -41,13 +41,18 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
         class="sc-fznJRM cHmYoj"
       >
         <img
+          alt="Pikachu"
           class="sc-fznWqX jtnVd"
+          src="image"
         />
-        <h2 />
+        <h2>
+          Pikachu
+        </h2>
         <p
           class="sc-fzoiQi bdygDM"
         >
           #
+          001
         </p>
       </div>
       <div
@@ -70,11 +75,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-name"
               >
                 <input
                   name="name"
-                  value=""
+                  value="Pikachu"
                 />
               </div>
             </div>
@@ -89,11 +94,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-number"
               >
                 <input
                   name="number"
-                  value=""
+                  value="001"
                 />
               </div>
             </div>
@@ -108,11 +113,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-classification"
               >
                 <input
                   name="classification"
-                  value=""
+                  value="Mouse Pokémon"
                 />
               </div>
             </div>
@@ -131,11 +136,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-image"
               >
                 <input
                   name="image"
-                  value=""
+                  value="image"
                 />
               </div>
             </div>
@@ -150,11 +155,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-maxCP"
               >
                 <input
                   name="maxCP"
-                  value=""
+                  value="100"
                 />
               </div>
             </div>
@@ -169,11 +174,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-maxHP"
               >
                 <input
                   name="maxHP"
-                  value=""
+                  value="400"
                 />
               </div>
             </div>
@@ -192,11 +197,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-weight.minimum"
               >
                 <input
                   name="weight.minimum"
-                  value=""
+                  value="0.1kg"
                 />
               </div>
             </div>
@@ -211,11 +216,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-weight.maximum"
               >
                 <input
                   name="weight.maximum"
-                  value=""
+                  value="4kg"
                 />
               </div>
             </div>
@@ -230,11 +235,11 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-height.minimum"
               >
                 <input
                   name="height.minimum"
-                  value=""
+                  value="0.1m"
                 />
               </div>
             </div>
@@ -249,18 +254,380 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
               </label>
               <div
                 class="sc-AxhCb LJpH"
-                data-testid="input-container"
+                data-testid="input-container-height.maximum"
               >
                 <input
                   name="height.maximum"
-                  value=""
+                  value="0.5m"
                 />
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-AxgMl fzotaY"
+          >
+            <label
+              class="sc-AxheI HPnrV"
+              for="resistant"
+            >
+              Resistant
+            </label>
+            <div
+              class=" css-1akvy1b-container"
+            >
+              <div
+                class="react-select__control css-2rzzny-control"
+              >
+                <div
+                  class="react-select__value-container react-select__value-container--is-multi react-select__value-container--has-value css-g1d714-ValueContainer"
+                >
+                  <div
+                    class="css-nmecjr-multiValue react-select__multi-value"
+                  >
+                    <div
+                      class="css-11547y4 react-select__multi-value__label"
+                    >
+                      Water
+                    </div>
+                    <div
+                      class="css-xb97g8 react-select__multi-value__remove"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="css-6q0nyr-Svg"
+                        focusable="false"
+                        height="14"
+                        viewBox="0 0 20 20"
+                        width="14"
+                      >
+                        <path
+                          d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="css-b8ldur-Input"
+                  >
+                    <div
+                      class="react-select__input"
+                      style="display: inline-block;"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        autocorrect="off"
+                        id="resistant"
+                        spellcheck="false"
+                        style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                        tabindex="0"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="react-select__indicators css-1hb7zxy-IndicatorsContainer"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-6q0nyr-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="react-select__indicator-separator css-1okebmr-indicatorSeparator"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="react-select__indicator react-select__dropdown-indicator css-tlfecz-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-6q0nyr-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-AxgMl fzotaY"
+          >
+            <label
+              class="sc-AxheI HPnrV"
+              for="weaknesses"
+            >
+              Weakness
+            </label>
+            <div
+              class=" css-1akvy1b-container"
+            >
+              <div
+                class="react-select__control css-2rzzny-control"
+              >
+                <div
+                  class="react-select__value-container react-select__value-container--is-multi css-g1d714-ValueContainer"
+                >
+                  <div
+                    class="react-select__placeholder css-1wa3eu0-placeholder"
+                  >
+                    Select weakness types
+                  </div>
+                  <div
+                    class="css-b8ldur-Input"
+                  >
+                    <div
+                      class="react-select__input"
+                      style="display: inline-block;"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        autocorrect="off"
+                        id="weaknesses"
+                        spellcheck="false"
+                        style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                        tabindex="0"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="react-select__indicators css-1hb7zxy-IndicatorsContainer"
+                >
+                  <span
+                    class="react-select__indicator-separator css-1okebmr-indicatorSeparator"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="react-select__indicator react-select__dropdown-indicator css-tlfecz-indicatorContainer"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="css-6q0nyr-Svg"
+                      focusable="false"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      width="20"
+                    >
+                      <path
+                        d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <h4>
             Specials
           </h4>
+          <div
+            class="sc-fzoyTs kFtWTx"
+          >
+            <div
+              class="sc-fzoNJl zAzro"
+            >
+              <div
+                class="sc-AxirZ jFeNgR"
+              >
+                <label
+                  class="sc-AxiKw cJozpM"
+                  for="attacks.special[0].name"
+                >
+                  Name
+                </label>
+                <div
+                  class="sc-AxhCb LJpH"
+                  data-testid="input-container-attacks.special[0].name"
+                >
+                  <input
+                    name="attacks.special[0].name"
+                    value="Thundershock"
+                  />
+                </div>
+              </div>
+              <div
+                class="sc-AxirZ jFeNgR"
+              >
+                <label
+                  class="sc-AxiKw cJozpM"
+                  for="attacks.special[0].damage"
+                >
+                  Damage
+                </label>
+                <div
+                  class="sc-AxhCb LJpH"
+                  data-testid="input-container-attacks.special[0].damage"
+                >
+                  <input
+                    name="attacks.special[0].damage"
+                    value="90"
+                  />
+                </div>
+              </div>
+              <div
+                class="sc-AxgMl fzotaY"
+              >
+                <label
+                  class="sc-AxheI HPnrV"
+                  for="attacks.special[0].type"
+                >
+                  Type
+                </label>
+                <div
+                  class=" css-1akvy1b-container"
+                >
+                  <div
+                    class="react-select__control css-2rzzny-control"
+                  >
+                    <div
+                      class="react-select__value-container react-select__value-container--has-value css-g1d714-ValueContainer"
+                    >
+                      <div
+                        class="react-select__single-value css-1opnhvy-singleValue"
+                      >
+                        Electric
+                      </div>
+                      <div
+                        class="css-b8ldur-Input"
+                      >
+                        <div
+                          class="react-select__input"
+                          style="display: inline-block;"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            id="attacks.special[0].type"
+                            spellcheck="false"
+                            style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                            tabindex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="react-select__indicators css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        class="react-select__indicator-separator css-1okebmr-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class="react-select__indicator react-select__dropdown-indicator css-tlfecz-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-6q0nyr-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-fzoXWK ggdMuR"
+          >
+            <h4>
+              Evolutions
+            </h4>
+            <div
+              class="sc-Axmtr hBVTto"
+            >
+              <ul
+                class="sc-AxmLO dvUWxE"
+              >
+                <li
+                  class="sc-fzozJi bEBSWk"
+                  data-testid="list-item-Raichu"
+                  style="background-color: rgb(35, 33, 41);"
+                >
+                  <div
+                    class="sc-fzoLsD bcnFzE"
+                  >
+                    <img
+                      alt="Raichu"
+                      class="sc-fzokOt cZKTvg"
+                      src="image"
+                    />
+                    <h2
+                      class="sc-fzpans joqlYm"
+                    >
+                      Raichu
+                    </h2>
+                    <p
+                      class="sc-fzplWN lcaWxL"
+                    >
+                      #
+                      002
+                    </p>
+                  </div>
+                  <div
+                    class="sc-fznyAO iDRvJd"
+                  >
+                    <div
+                      class="sc-fznKkj ipeEIj"
+                    >
+                      <p
+                        class="sc-fznZeY LRfVQ"
+                      >
+                        Normal
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </fieldset>
         <button
           class="sc-fzoLag isDFBH"

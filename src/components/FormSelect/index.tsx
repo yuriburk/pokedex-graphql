@@ -6,7 +6,6 @@ import ReactSelect, {
 import { useField } from '@unform/core';
 
 import { Container, Label, customStyles } from './styles';
-import { getValueFromSelectRef } from 'utils/getValueFromSelectRef';
 
 interface IProps extends SelectProps<OptionTypeBase> {
   name: string;
@@ -27,7 +26,20 @@ const FormSelect: React.FC<IProps> = ({
     registerField({
       name: fieldName,
       ref: selectRef.current,
-      getValue: (ref: any) => getValueFromSelectRef(ref, rest.isMulti),
+      getValue: (ref: any) => {
+        if (rest.isMulti) {
+          if (!ref.state.value) {
+            return [];
+          }
+
+          return ref.state.value.map((option: OptionTypeBase) => option.value);
+        }
+        if (!ref.state.value || !ref.state.value.value) {
+          return '';
+        }
+
+        return ref.state.value.value;
+      },
     });
   }, [fieldName, registerField, rest.isMulti]);
 

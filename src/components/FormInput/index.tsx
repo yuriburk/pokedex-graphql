@@ -51,7 +51,7 @@ const FormInput: React.FC<InputProps> = ({
     <Container>
       <Label htmlFor={name}>{label}</Label>
       <InputContainer
-        data-testid="input-container"
+        data-testid={`input-container-${name}`}
         style={containerStyle}
         isErrored={!!error}
         isFilled={isFilled}

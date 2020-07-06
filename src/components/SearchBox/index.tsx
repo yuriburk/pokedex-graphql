@@ -18,14 +18,14 @@ const SearchBox: React.FC<ISearchProps> = ({
   containerStyle = {},
   ...rest
 }) => {
-  const debouncedCall = debounce((event) => onChange(event), debounceTime);
+  const debouncedCall = debounce((func) => func(), debounceTime);
 
   const handleOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       event.persist();
-      debouncedCall(event);
+      debouncedCall(onChange(event));
     },
-    [debouncedCall],
+    [debouncedCall, onChange],
   );
 
   return (

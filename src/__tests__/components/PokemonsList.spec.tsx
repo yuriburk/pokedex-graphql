@@ -69,7 +69,7 @@ describe('PokemonsList Component', () => {
     const title = getByText(pokemon.name);
     const image = getByAltText(pokemon.name);
     const number = getByText(`#${pokemon.number}`);
-    const specialType = getByText(pokemon.attacks.special[0].type);
+    const specialType = getByText(pokemon.attacks.special[0].type ?? '');
 
     expect(title).toBeInTheDocument();
     expect(image).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('PokemonsList Component', () => {
   it('should be able to navigate', async () => {
     const { getByTestId } = render(<PokemonListWrapper />);
 
-    const listItem = getByTestId('list-item');
+    const listItem = getByTestId(`list-item-${pokemon.name}`);
 
     fireEvent.click(listItem);
 

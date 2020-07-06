@@ -50,7 +50,7 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
         <List>
           {pokemons?.map((pokemon: IPokemon, index: number) => (
             <ListItem
-              data-testid="list-item"
+              data-testid={`list-item-${pokemon.name}`}
               key={index}
               onClick={() => handleNavigate(pokemon)}
               style={containerStyle}
