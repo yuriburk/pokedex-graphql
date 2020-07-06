@@ -17,7 +17,7 @@ jest.mock('@unform/core', () => {
 });
 
 describe('FormInput Component', () => {
-  it('should be able to render an form input', () => {
+  it('should be able to render a form input', () => {
     const { getByPlaceholderText } = render(
       <FormInput label="E-mail" name="email" placeholder="E-mail" />,
     );

@@ -71,10 +71,10 @@ describe('PokemonsList Component', () => {
     const number = getByText(`#${pokemon.number}`);
     const specialType = getByText(pokemon.attacks.special[0].type);
 
-    expect(title).toBeTruthy();
-    expect(image).toBeTruthy();
-    expect(number).toBeTruthy();
-    expect(specialType).toBeTruthy();
+    expect(title).toBeInTheDocument();
+    expect(image).toBeInTheDocument();
+    expect(number).toBeInTheDocument();
+    expect(specialType).toBeInTheDocument();
   });
 
   it('should be able to navigate', async () => {

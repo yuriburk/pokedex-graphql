@@ -1,9 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 
 import FormSelect from '../../components/FormSelect';
-import { getValueFromSelectRef } from 'utils/getValueFromSelectRef';
 
 jest.mock('@unform/core', () => {
   return {
@@ -24,20 +22,21 @@ const types = [
 ];
 
 describe('FormSelect Component', () => {
-  it('should be able to render an single FormSelect', async () => {
+  it('should be able to render a single FormSelect', async () => {
     const placeholder = 'Select type';
     const label = 'Type';
 
-    const { getByText } = render(
+    const { getByText, getByLabelText } = render(
       <FormSelect
         placeholder={placeholder}
         label={label}
         name="types"
         options={types}
+        isMulti
       />,
     );
 
     expect(getByText(placeholder)).toBeInTheDocument();
-    expect(getByText(label)).toBeInTheDocument();
+    expect(getByLabelText(label)).toBeInTheDocument();
   });
 });

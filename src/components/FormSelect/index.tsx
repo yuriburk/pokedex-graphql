@@ -33,8 +33,9 @@ const FormSelect: React.FC<IProps> = ({
 
   return (
     <Container>
-      {label && <Label>{label}</Label>}
+      {label && <Label htmlFor={name}>{label}</Label>}
       <ReactSelect
+        inputId={name}
         placeholder={placeholder}
         defaultValue={defaultValue}
         ref={selectRef}
