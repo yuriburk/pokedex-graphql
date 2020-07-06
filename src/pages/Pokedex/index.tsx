@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo } from 'react';
+import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
@@ -7,8 +7,8 @@ import SearchBox from 'components/SearchBox';
 import { IPokemon } from 'interfaces';
 import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
 import {
+  findCachedPokemonsByName,
   GET_POKEMONS_CACHED,
-  findCachedPokemons,
 } from 'operations/queries/Pokemons/cache';
 import { createPokemonsCache } from 'operations/mutations/Pokemons/cache';
 import { Container } from './styles';
@@ -17,14 +17,19 @@ import Header from 'components/Header';
 const Pokedex: React.FC = () => {
   const [filteredPokemons, setFilteredPokemons] = useState<IPokemon[]>([]);
 
+  const history = useHistory();
+
   const [getPokemons, { loading }] = useLazyQuery<{
     pokemons: IPokemon[];
   }>(GET_POKEMONS, {
     variables: { count: 151 },
-    onCompleted: (data) => createPokemonsCache(data.pokemons),
+    onCompleted: (data) => {
+      createPokemonsCache(data.pokemons);
+    },
   });
 
   const { data: cachedData } = useQuery(GET_POKEMONS_CACHED, {
+    variables: { count: 151 },
     onCompleted: (data) => {
       if (data.pokemonsCached.length === 0) {
         getPokemons();
@@ -32,15 +37,13 @@ const Pokedex: React.FC = () => {
     },
   });
 
-  const history = useHistory();
-
   const handleNavigate = useCallback(
-    (pokemon: IPokemon) => history.push('edit', pokemon.id),
+    (pokemon: IPokemon) => history.push(`edit/${pokemon.id}`),
     [history],
   );
 
   const handleSearch = useCallback((value: string): void => {
-    const pokemonFound = findCachedPokemons(value);
+    const pokemonFound = findCachedPokemonsByName(value);
     setFilteredPokemons(pokemonFound);
   }, []);
 
@@ -48,7 +51,7 @@ const Pokedex: React.FC = () => {
     (): IPokemon[] =>
       filteredPokemons.length > 0
         ? filteredPokemons
-        : cachedData.pokemonsCached,
+        : cachedData?.pokemonsCached,
     [filteredPokemons, cachedData],
   );
 
@@ -64,11 +67,13 @@ const Pokedex: React.FC = () => {
           }}
         />
       </Header>
-      <PokemonsList
-        loading={loading}
-        pokemons={renderPokemons}
-        handleNavigate={handleNavigate}
-      />
+      {cachedData && (
+        <PokemonsList
+          loading={loading}
+          pokemons={renderPokemons}
+          handleNavigate={handleNavigate}
+        />
+      )}
     </Container>
   );
 };

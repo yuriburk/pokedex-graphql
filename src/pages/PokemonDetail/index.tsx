@@ -49,7 +49,6 @@ const PokemonDetail: React.FC = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   const { id } = useParams();
-  console.log(id);
 
   const formRef = useRef<FormHandles>(null);
 
@@ -79,9 +78,7 @@ const PokemonDetail: React.FC = () => {
           abortEarly: false,
         });
 
-        console.log(data);
         const updatedPokemon = Object.assign({}, pokemon, data);
-        console.log(pokemon, updatedPokemon);
 
         updateCachedPokemon(updatedPokemon);
       } catch (error) {
