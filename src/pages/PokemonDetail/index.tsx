@@ -12,6 +12,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 
 import FormInput from 'components/FormInput';
 import FormSelect from 'components/FormSelect';
+import PokemonsList from 'components/Pokemons/List';
 import Button from 'components/Button';
 import Header from 'components/Header';
 import { IPokemon } from 'interfaces';
@@ -29,6 +30,7 @@ import {
   Fieldset,
   LineContainer,
   SpecialContainer,
+  EvolutionContainer,
 } from './styles';
 import { useApolloClient } from '@apollo/client';
 import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
@@ -66,10 +68,6 @@ const PokemonDetail: React.FC = () => {
   const updateCache = useCallback(
     (pokemon: IPokemon) => {
       updateCachedPokemon(pokemon);
-      const data = client.readQuery({
-        query: GET_POKEMONS,
-        variables: { count: 151 },
-      });
       client.writeQuery({
         query: GET_POKEMONS,
         variables: { count: 151 },
@@ -112,6 +110,18 @@ const PokemonDetail: React.FC = () => {
 
   const pokemonTypesForm = useMemo(() => pokemonTypesFormArray, []);
 
+  const getPokemonEvolutions = useCallback(() => {
+    if (pokemon.evolutions?.length > 0) {
+      const pokemonsEvolutions = pokemon.evolutions.map((evolution) =>
+        findCachedPokemonById(evolution.id),
+      );
+
+      return pokemonsEvolutions as IPokemon[];
+    }
+
+    return [] as IPokemon[];
+  }, [pokemon]);
+
   return (
     <Container>
       <Header title="Details">
@@ -148,9 +158,6 @@ const PokemonDetail: React.FC = () => {
                 name="image"
                 defaultValue={pokemon.image}
               />
-            </LineContainer>
-
-            <LineContainer>
               <FormInput
                 label="Max CP"
                 name="maxCP"
@@ -160,6 +167,19 @@ const PokemonDetail: React.FC = () => {
                 label="Max HP"
                 name="maxHP"
                 defaultValue={pokemon.maxHP}
+              />
+            </LineContainer>
+
+            <LineContainer>
+              <FormInput
+                label="Min Weight"
+                name="weight.minimum"
+                defaultValue={pokemon.weight?.minimum}
+              />
+              <FormInput
+                label="Max Weight"
+                name="weight.maximum"
+                defaultValue={pokemon.weight?.maximum}
               />
               <FormInput
                 label="Min Height"
@@ -229,8 +249,17 @@ const PokemonDetail: React.FC = () => {
                   </SpecialContainer>
                 </LineContainer>
               ))}
-          </Fieldset>
 
+            {getPokemonEvolutions()?.length > 0 && (
+              <EvolutionContainer>
+                <h4>Evolutions</h4>
+                <PokemonsList
+                  pokemons={getPokemonEvolutions()}
+                  containerStyle={{ backgroundColor: '#232129' }}
+                />
+              </EvolutionContainer>
+            )}
+          </Fieldset>
           <Button type="submit">Salvar</Button>
         </InputsContainer>
       </Form>

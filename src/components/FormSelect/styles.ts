@@ -6,12 +6,12 @@ export const Container = styled.div`
   flex-direction: column;
   flex: 1;
 
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 `;
 
 export const Label = styled.label`
   font-weight: bold;
-  margin-bottom: 2px;
+  margin-bottom: 12px;
 `;
 
 export const customStyles = {

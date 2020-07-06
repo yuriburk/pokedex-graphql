@@ -1,6 +1,5 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import { useLazyQuery, useQuery } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
 
 import PokemonsList from 'components/Pokemons/List';
 import SearchBox from 'components/SearchBox';
@@ -16,8 +15,6 @@ import Header from 'components/Header';
 
 const Pokedex: React.FC = () => {
   const [filteredPokemons, setFilteredPokemons] = useState<IPokemon[]>([]);
-
-  const history = useHistory();
 
   const [getPokemons, { loading }] = useLazyQuery<{
     pokemons: IPokemon[];
@@ -36,11 +33,6 @@ const Pokedex: React.FC = () => {
       }
     },
   });
-
-  const handleNavigate = useCallback(
-    (pokemon: IPokemon) => history.push(`edit/${pokemon.id}`),
-    [history],
-  );
 
   const handleSearch = useCallback((value: string): void => {
     const pokemonFound = findCachedPokemonsByName(value);
@@ -68,11 +60,7 @@ const Pokedex: React.FC = () => {
         />
       </Header>
       {cachedData && (
-        <PokemonsList
-          loading={loading}
-          pokemons={renderPokemons}
-          handleNavigate={handleNavigate}
-        />
+        <PokemonsList loading={loading} pokemons={renderPokemons} />
       )}
     </Container>
   );

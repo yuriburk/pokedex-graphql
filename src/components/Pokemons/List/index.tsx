@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { PokemonSkeleton } from '../../Skeleton';
 import { IPokemon, IPokemonTypes } from 'interfaces';
@@ -16,22 +17,29 @@ import {
 } from './styles';
 
 interface IPokemonsListProps {
-  loading: boolean;
+  loading?: boolean;
   pokemons: IPokemon[];
-  handleNavigate(pokemon: IPokemon): void;
+  containerStyle?: Record<string, unknown>;
 }
 
 const PokemonsList: React.FC<IPokemonsListProps> = ({
   loading,
   pokemons,
-  handleNavigate,
+  containerStyle = {},
 }) => {
+  const history = useHistory();
+
   const generateDistinctPokemonSpecialsArray = useCallback(
     (pokemon: IPokemon): IPokemonTypes[] =>
       Array.from<IPokemonTypes>(
         new Set(pokemon.attacks.special.map((s) => s.type as IPokemonTypes)),
       ),
     [],
+  );
+
+  const handleNavigate = useCallback(
+    (pokemon: IPokemon) => history.push(`/edit/${pokemon.id}`),
+    [history],
   );
 
   return (
@@ -41,7 +49,11 @@ const PokemonsList: React.FC<IPokemonsListProps> = ({
       ) : (
         <List>
           {pokemons?.map((pokemon: IPokemon, index: number) => (
-            <ListItem key={index} onClick={() => handleNavigate(pokemon)}>
+            <ListItem
+              key={index}
+              onClick={() => handleNavigate(pokemon)}
+              style={containerStyle}
+            >
               <PokemonInfo>
                 <Image src={pokemon.image} alt={pokemon.name} />
                 <Title>{pokemon.name}</Title>

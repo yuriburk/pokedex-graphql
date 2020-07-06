@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   font-weight: bold;
-  margin-bottom: 2px;
+  margin-bottom: 12px;
 `;
 
 interface IInputContainerProps {
@@ -41,7 +41,7 @@ export const InputContainer = styled.div<IInputContainerProps>`
   align-items: center;
 
   & + div {
-    margin-top: 8px;
+    margin-top: 12px;
   }
 
   input {

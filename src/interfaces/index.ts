@@ -26,9 +26,6 @@ export interface IPokemon {
   evolutions: [
     {
       id: string;
-      image: string;
-      number: string;
-      name: string;
     },
   ];
 }

@@ -71,5 +71,8 @@ export const LineContainer = styled.div`
 export const SpecialContainer = styled.div`
   display: flex;
   flex: 1;
-  margin: 8px 0;
+`;
+
+export const EvolutionContainer = styled.div`
+  margin: 12px 0;
 `;

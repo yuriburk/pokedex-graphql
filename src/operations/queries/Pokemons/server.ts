@@ -29,9 +29,6 @@ export const GET_POKEMONS = gql`
       }
       evolutions {
         id
-        image
-        number
-        name
       }
     }
   }
