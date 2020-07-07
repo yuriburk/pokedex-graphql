@@ -92,7 +92,7 @@ const PokemonListWrapper = () => (
   </MockedProvider>
 );
 
-describe('PokemonDetail Component', () => {
+describe('PokemonDetail Page', () => {
   beforeAll(() => pokemonsStore(pokemons));
 
   afterEach(() => {

@@ -22,7 +22,7 @@ describe('FormInput Component', () => {
       <FormInput label="E-mail" name="email" placeholder="E-mail" />,
     );
 
-    expect(getByPlaceholderText('E-mail')).toBeTruthy();
+    expect(getByPlaceholderText('E-mail')).toBeInTheDocument();
   });
 
   it('should be able to render highlight on form input focus', async () => {

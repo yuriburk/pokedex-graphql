@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pokedex Component should be able to render without errors 1`] = `
+exports[`Pokedex Page should be able to render without errors 1`] = `
 <div>
   <div
     class="sc-fznKkj lbPMLS"

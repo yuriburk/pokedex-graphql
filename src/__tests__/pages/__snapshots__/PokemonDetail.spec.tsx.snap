@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
+exports[`PokemonDetail Page should be able to take a snapshot 1`] = `
 <div>
   <div
     class="sc-fzpjYC gpmpYc"
@@ -667,7 +667,7 @@ exports[`PokemonDetail Component should be able to take a snapshot 1`] = `
           </div>
         </fieldset>
         <button
-          class="sc-fzoLag eEBRjj"
+          class="sc-fzoLag ilWGmh"
           type="submit"
         >
           Salvar

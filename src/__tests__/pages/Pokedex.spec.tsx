@@ -114,7 +114,7 @@ const PokedexWrapper = () => (
   </ThemeProvider>
 );
 
-describe('Pokedex Component', () => {
+describe('Pokedex Page', () => {
   beforeEach(() => pokemonsStore(pokemons));
 
   afterEach(cleanup);

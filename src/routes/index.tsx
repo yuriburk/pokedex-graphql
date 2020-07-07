@@ -3,13 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Pokedex from 'pages/Pokedex';
 import PokemonDetail from 'pages/PokemonDetail';
-
-const NotFound = () => (
-  <div>
-    <h1>404</h1>
-    <p>NotFound</p>
-  </div>
-);
+import NotFound from 'pages/NotFound';
 
 const Routes: React.FC = () => (
   <Switch>
