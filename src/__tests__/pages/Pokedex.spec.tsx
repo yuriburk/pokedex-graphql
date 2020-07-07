@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  render,
-  cleanup,
-  fireEvent,
-  waitForElement,
-  act,
-} from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { ThemeProvider } from 'styled-components';
 
@@ -14,7 +8,6 @@ import Pokedex from 'pages/Pokedex';
 import { pokemonsStore } from 'operations';
 import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
 import { IPokemon } from 'interfaces';
-// import getPokemons from '__tests__/utils/getPokemons';
 
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
