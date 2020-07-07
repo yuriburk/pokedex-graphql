@@ -46,6 +46,19 @@ interface EditPokemonFormData {
     maximum: string;
     minimum: string;
   };
+  weight: {
+    maximum: string;
+    minimum: string;
+  };
+  resistant: string[];
+  weaknesses: string[];
+  attacks: {
+    specials: {
+      name: string;
+      damage: string;
+      type: string;
+    }[];
+  };
 }
 
 const PokemonDetail: React.FC = () => {
@@ -87,6 +100,21 @@ const PokemonDetail: React.FC = () => {
           height: Yup.object({
             minimum: Yup.string().required('Tamanho mínimo obrigatório'),
             maximum: Yup.string().required('Tamanho máximo obrigatório'),
+          }),
+          weight: Yup.object().shape({
+            minimum: Yup.string().required('Peso mínimo obrigatório'),
+            maximum: Yup.string().required('Peso máximo obrigatório'),
+          }),
+          resistant: Yup.array(),
+          weaknesses: Yup.array(),
+          attacks: Yup.object().shape({
+            special: Yup.array().of(
+              Yup.object().shape({
+                name: Yup.string().required('Nome obrigatório'),
+                damage: Yup.string().required('Dano obrigatório'),
+                type: Yup.string().required('Tipo obrigatório'),
+              }),
+            ),
           }),
         });
 
@@ -208,15 +236,15 @@ const PokemonDetail: React.FC = () => {
               />
             )}
 
-            {pokemon && (
+            {pokemon.weaknesses && (
               <FormSelect
-                placeholder="Select weakness types"
-                label="Weakness"
+                placeholder="Select weaknessess types"
+                label="Weaknesses"
                 name="weaknesses"
                 options={pokemonTypesForm}
-                defaultValue={pokemon.weaknesses?.map((weakness) => ({
-                  value: weakness,
-                  label: weakness,
+                defaultValue={pokemon.weaknesses?.map((weaknessess) => ({
+                  value: weaknessess,
+                  label: weaknessess,
                 }))}
                 isMulti
               />

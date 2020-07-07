@@ -3,7 +3,6 @@ import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { ThemeProvider } from 'styled-components';
 
-import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
 import PokemonDetail from 'pages/PokemonDetail';
 import { theme } from 'styles/theme';
 import { IPokemon } from 'interfaces';

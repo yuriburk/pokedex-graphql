@@ -48,7 +48,84 @@ exports[`Pokedex Component should be able to render without errors 1`] = `
     >
       <ul
         class="sc-AxirZ chGCDH"
-      />
+      >
+        <li
+          class="sc-AxiKw hYtiYe"
+          data-testid="list-item-Pikachu"
+        >
+          <div
+            class="sc-AxhCb fjiAYs"
+          >
+            <img
+              alt="Pikachu"
+              class="sc-fzozJi ubzuZ"
+              src="image"
+            />
+            <h2
+              class="sc-AxhUy SGDKj"
+            >
+              Pikachu
+            </h2>
+            <p
+              class="sc-AxgMl dccyOx"
+            >
+              #
+              001
+            </p>
+          </div>
+          <div
+            class="sc-AxheI CIhFB"
+          >
+            <div
+              class="sc-Axmtr kTUKtH"
+            >
+              <p
+                class="sc-AxmLO irKRQn"
+              >
+                Electric
+              </p>
+            </div>
+          </div>
+        </li>
+        <li
+          class="sc-AxiKw hYtiYe"
+          data-testid="list-item-Raichu"
+        >
+          <div
+            class="sc-AxhCb fjiAYs"
+          >
+            <img
+              alt="Raichu"
+              class="sc-fzozJi ubzuZ"
+              src="image"
+            />
+            <h2
+              class="sc-AxhUy SGDKj"
+            >
+              Raichu
+            </h2>
+            <p
+              class="sc-AxgMl dccyOx"
+            >
+              #
+              002
+            </p>
+          </div>
+          <div
+            class="sc-AxheI CIhFB"
+          >
+            <div
+              class="sc-Axmtr hguHGR"
+            >
+              <p
+                class="sc-AxmLO irKRQn"
+              >
+                Normal
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

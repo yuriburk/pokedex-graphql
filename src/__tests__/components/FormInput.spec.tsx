@@ -36,15 +36,15 @@ describe('FormInput Component', () => {
     fireEvent.focus(inputElement);
 
     await waitFor(() => {
-      expect(inputContainerElement).toHaveStyle('border-color: #ff9000;');
-      expect(inputContainerElement).toHaveStyle('color: #ff9000;');
+      expect(inputContainerElement).toHaveStyle('border-color: #78c850;');
+      expect(inputContainerElement).toHaveStyle('color: #78c850;');
     });
 
     fireEvent.blur(inputElement);
 
     await waitFor(() => {
-      expect(inputContainerElement).not.toHaveStyle('border-color: #ff9000;');
-      expect(inputContainerElement).not.toHaveStyle('color: #ff9000;');
+      expect(inputContainerElement).not.toHaveStyle('border-color: #78c850;');
+      expect(inputContainerElement).not.toHaveStyle('color: #78c850;');
     });
   });
 
@@ -63,7 +63,7 @@ describe('FormInput Component', () => {
     fireEvent.blur(inputElement);
 
     await waitFor(() => {
-      expect(inputContainerElement).not.toHaveStyle('border-color: #ff9000;');
+      expect(inputContainerElement).not.toHaveStyle('border-color: #78c850;');
     });
   });
 });

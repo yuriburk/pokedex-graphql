@@ -25,7 +25,7 @@ export const InputContainer = styled.div<IInputContainerProps>`
   padding: 14px;
   border: 2px solid #232129;
   color: ${(props) =>
-    props.isFocused || props.isFilled ? '#ff9000' : '#666360'};
+    props.isFocused || props.isFilled ? '#78c850' : '#666360'};
   ${(props) =>
     props.isErrored &&
     css`
@@ -34,7 +34,7 @@ export const InputContainer = styled.div<IInputContainerProps>`
   ${(props) =>
     props.isFocused &&
     css`
-      border-color: #ff9000;
+      border-color: #78c850;
     `}
 
   display: flex;

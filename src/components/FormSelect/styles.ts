@@ -27,7 +27,7 @@ export const customStyles = {
     boxShadow: 'none',
     borderRadius: '10px',
     '&:hover': {
-      borderColor: '#ff9000',
+      borderColor: '#78c850',
     },
   }),
   multiValue: (base: CSSProperties): CSSProperties => ({

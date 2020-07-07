@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   span {
     width: 160px;
-    background: #ff9000;
+    background: #78c850;
     padding: 8px;
     border-radius: 4px;
     font-size: 14px;
@@ -25,7 +25,7 @@ export const Container = styled.div`
     &::before {
       content: '';
       border-style: solid;
-      border-color: #ff9000 transparent;
+      border-color: #78c850 transparent;
       border-width: 6px 6px 0px 6px;
       position: absolute;
       top: 100%;
