@@ -16,7 +16,7 @@ export const typesColors = {
     background: '#c03028',
   },
   Water: {
-    background: '#78c850',
+    background: '#6890F0',
   },
   Flying: {
     background: '#a890f0',
