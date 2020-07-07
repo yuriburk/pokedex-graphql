@@ -12,6 +12,10 @@ export const Form = styled(UnForm)(
     flex-direction: row;
     justify-content: space-around;
 
+    ${props.theme.breakpoints.xl} {
+      flex-direction: column;
+    }
+
     padding: 24px;
     border-radius: 8px;
     background-color: ${props.theme.colors.secundaryDark};
