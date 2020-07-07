@@ -1,39 +1,38 @@
-import React, { useCallback, useState, useMemo } from 'react';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import React, { useCallback, useState, useMemo, useEffect } from 'react';
+import { useLazyQuery } from '@apollo/client';
 
 import PokemonsList from 'components/PokemonsList';
 import SearchBox from 'components/SearchBox';
 import { IPokemon } from 'interfaces';
 import { GET_POKEMONS } from 'operations/queries/Pokemons/server';
-import {
-  findCachedPokemonsByName,
-  GET_POKEMONS_CACHED,
-} from 'operations/queries/Pokemons/cache';
+import { findCachedPokemonsByName } from 'operations/queries/Pokemons/cache';
 import { createPokemonsCache } from 'operations/mutations/Pokemons/cache';
 import { Container } from './styles';
 import Header from 'components/Header';
+import { pokemonsStore } from 'operations';
 
 const Pokedex: React.FC = () => {
+  const [pokemons, setPokemons] = useState<IPokemon[]>(pokemonsStore());
   const [filteredPokemons, setFilteredPokemons] = useState<IPokemon[]>([]);
 
-  const [getPokemons, { loading }] = useLazyQuery<{
+  const [getPokemons, { loading, data }] = useLazyQuery<{
     pokemons: IPokemon[];
   }>(GET_POKEMONS, {
     variables: { count: 151 },
-    onCompleted: (data) => {
-      createPokemonsCache(data.pokemons);
-    },
   });
 
-  const { data: cachedData } = useQuery(GET_POKEMONS_CACHED, {
-    variables: { count: 151 },
-    onCompleted: (data) => {
-      console.log('completed', data);
-      if (data.pokemonsCached.length === 0) {
-        getPokemons();
-      }
-    },
-  });
+  useEffect(() => {
+    if (pokemonsStore().length === 0) {
+      getPokemons();
+    }
+  }, [getPokemons]);
+
+  useEffect(() => {
+    if (data) {
+      setPokemons(data.pokemons);
+      createPokemonsCache(data.pokemons);
+    }
+  }, [data]);
 
   const handleSearch = useCallback((value: string): void => {
     const pokemonFound = findCachedPokemonsByName(value);
@@ -42,10 +41,8 @@ const Pokedex: React.FC = () => {
 
   const renderPokemons = useMemo(
     (): IPokemon[] =>
-      filteredPokemons.length > 0
-        ? filteredPokemons
-        : cachedData?.pokemonsCached,
-    [filteredPokemons, cachedData],
+      filteredPokemons.length > 0 ? filteredPokemons : pokemons,
+    [filteredPokemons, pokemons],
   );
 
   return (
@@ -60,9 +57,7 @@ const Pokedex: React.FC = () => {
           }}
         />
       </Header>
-      {cachedData && (
-        <PokemonsList loading={loading} pokemons={renderPokemons} />
-      )}
+      {pokemons && <PokemonsList loading={loading} pokemons={renderPokemons} />}
     </Container>
   );
 };

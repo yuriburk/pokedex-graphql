@@ -43,6 +43,13 @@ exports[`Pokedex Component should be able to render without errors 1`] = `
         </svg>
       </div>
     </div>
+    <div
+      class="sc-AxjAm StDqN"
+    >
+      <ul
+        class="sc-AxirZ chGCDH"
+      />
+    </div>
   </div>
 </div>
 `;
